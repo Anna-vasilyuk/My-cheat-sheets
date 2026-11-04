@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Змінні — JavaScript</title>
+
+    <!-- Підключення CSS -->
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+
+  <body>
+    <!-- Заголовок -->
+    <header>
+      <a href="../javascript.html">← Назад до JavaScript</a>
+      <h1>Змінні</h1>
+      <p>Зберігання даних у JavaScript</p>
+    </header>
+
+    <!-- Основний вміст -->
+    <main>
+      <!-- ТЕМА 1: Що таке змінна -->
+      <section>
+        <h2>Що таке змінна?</h2>
+
+        <p>
+          <strong>Змінна</strong> — це іменоване сховище для даних. Ми можемо
+          використовувати змінні для зберігання товарів, відвідувачів та іншої
+          інформації.
+        </p>
+
+        <h3>Створення змінної</h3>
+
+        <p>
+          Для створення змінних у JavaScript використовують три ключові слова:
+          <strong>var, let, const</strong>.
+        </p>
+
+        <h3>Оголошення змінної</h3>
+
+        <p>Наприклад, створимо змінну з ім'ям name:</p>
+
+        <pre><code>var name;</code></pre>
+
+        <h3>Присвоєння значення</h3>
+
+        <p>
+          Щоб записати дані у змінну, використовують оператор присвоєння
+          <strong>=</strong>.
+        </p>
+
+        <pre><code>var Surname = "John";
+
+console.log(Surname); // Виведе "John"</code></pre>
+
+        <button onclick="runSurname()">Запустити код</button>
+        <p id="surname-result"></p>
+      </section>
+
+      <!-- Три картки зверху -->
+      <section class="variable-cards">
+        <h2>Способи оголошення змінних</h2>
+
+        <div class="cards">
+          <div class="variable-card var-card">
+            <h3>var</h3>
+            <p><strong>Старий спосіб</strong></p>
+            <p>Значення можна змінювати та повторно оголошувати.</p>
+            <pre><code>var name = "John";
+name = "Anna";</code></pre>
+            <button onclick="runVar()">Запустити код</button>
+            <p id="var-result"></p>
+          </div>
+
+          <div class="variable-card let-card">
+            <h3>let</h3>
+            <p><strong>Сучасний спосіб</strong></p>
+            <p>
+              Значення можна змінювати, але не можна повторно оголошувати в тій
+              самій області видимості.
+            </p>
+            <pre><code>let age = 25;
+age = 30;</code></pre>
+            <button onclick="runLet()">Запустити код</button>
+            <p id="let-result"></p>
+          </div>
+
+          <div class="variable-card const-card">
+            <h3>const</h3>
+            <p><strong>Константа</strong></p>
+            <p>Значення не можна переприсвоїти. Його потрібно задати одразу.</p>
+            <pre><code>const pi = 3.14;</code></pre>
+            <button onclick="runConst()">Запустити код</button>
+            <p id="const-result"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Детальне пояснення var -->
+      <section>
+        <h2>1. Тип змінної — var</h2>
+
+        <p>
+          Ключове слово <strong>var</strong> було першим способом оголошення
+          змінних у JavaScript.
+        </p>
+
+        <p>
+          Змінні, оголошені за допомогою var, мають глобальну або функціональну
+          область видимості залежно від місця оголошення.
+        </p>
+
+        <p>Приклад:</p>
+
+        <pre><code>var name = "John";
+
+console.log(name); // John</code></pre>
+
+        <p>
+          Значення змінної можна змінювати, а також повторно оголошувати її з
+          тим самим ім'ям у тій самій області видимості.
+        </p>
+
+        <pre><code>var name = "John";
+var name = "Anna";
+
+console.log(name); // Anna</code></pre>
+
+        <p>
+          Однак var має особливості області видимості, які можуть призводити до
+          небажаних результатів.
+        </p>
+      </section>
+
+      <!-- Детальне пояснення let -->
+      <section>
+        <h2>2. Тип змінної — let</h2>
+
+        <p>
+          Ключове слово <strong>let</strong> було введене у стандарті ECMAScript
+          6 (ES6) у 2015 році.
+        </p>
+
+        <p>
+          Змінні let мають блочну область видимості. Це означає, що вони
+          доступні лише всередині блоку коду, в якому були оголошені.
+        </p>
+
+        <p>Приклад:</p>
+
+        <pre><code>let age = 30;
+
+if (true) {
+    let age = 25;
+    console.log(age); // 25
+}
+
+console.log(age); // 30</code></pre>
+
+        <button onclick="runLetScope()">Запустити код</button>
+
+        <p id="let-scope-result"></p>
+
+        <p>
+          Використання let допомагає уникати конфліктів імен змінних та робить
+          код зрозумілішим.
+        </p>
+      </section>
+
+      <!-- Детальне пояснення const -->
+      <section>
+        <h2>3. Тип змінної — const</h2>
+
+        <p>
+          Ключове слово <strong>const</strong> також було введене у стандарті
+          ES6.
+        </p>
+
+        <p>
+          Воно використовується для оголошення змінних, яким не можна
+          переприсвоїти інше значення.
+        </p>
+
+        <p>
+          Змінна const має блочну область видимості та обов'язково повинна
+          отримати значення під час оголошення.
+        </p>
+
+        <p>Приклад:</p>
+
+        <pre><code>const pi = 3.14;
+
+console.log(pi); // 3.14</code></pre>
+
+        <p>
+          Якщо спробувати переприсвоїти значення const, JavaScript видасть
+          помилку.
+        </p>
+
+        <pre><code>const pi = 3.14;
+
+pi = 5; // TypeError</code></pre>
+
+        <p>
+          Якщо програміст знає, що змінній не потрібно переприсвоювати значення,
+          варто використовувати const.
+        </p>
+      </section>
+
+      <!-- Порівняльна таблиця -->
+      <section>
+        <h2>Порівняння var, let та const</h2>
+
+        <p>
+          Розглянемо основні відмінності між трьома способами оголошення
+          змінних.
+        </p>
+
+        <table>
+          <tr>
+            <th>Особливість</th>
+            <th>var</th>
+            <th>let</th>
+            <th>const</th>
+          </tr>
+
+          <tr>
+            <td>Зміна значення</td>
+            <td>Так</td>
+            <td>Так</td>
+            <td>Ні</td>
+          </tr>
+
+          <tr>
+            <td>Повторне оголошення в тій самій області</td>
+            <td>Так</td>
+            <td>Ні</td>
+            <td>Ні</td>
+          </tr>
+
+          <tr>
+            <td>Обов'язкове початкове значення</td>
+            <td>Ні</td>
+            <td>Ні</td>
+            <td>Так</td>
+          </tr>
+
+          <tr>
+            <td>Блочна область видимості</td>
+            <td>Ні</td>
+            <td>Так</td>
+            <td>Так</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- Області видимості -->
+      <section>
+        <h2>Області видимості та Hoisting (Простими словами)</h2>
+
+        <h3>Що таке область видимості?</h3>
+        <p>
+          Область видимості — це <strong>"прописка" або кордони</strong>,
+          всередині яких змінна має право перебувати. За межами цих кордонів
+          програми її просто не існує.
+        </p>
+        <p>
+          Змінна <code>var</code> безвідповідальна і може проходити крізь стіни
+          фігурних дужок <code>{}</code>. А от <code>let</code> і
+          <code>const</code> суворо зачиняються всередині того блоку (бункера),
+          де їх було створено.
+        </p>
+
+        <h3>Приклад із var (Проходить крізь стіни)</h3>
+        <pre><code>if (true) {
+    var first = "Я var"; // Змінна зайшла всередину блоку {}
+}
+
+console.log(first); // Виведе: "Я var" (Спокійно вийшла назовні)</code></pre>
+
+        <h3>Приклад із let (Зачинена в бункері)</h3>
+        <pre><code>if (true) {
+    let second = "Я let"; // Народилася всередині блоку {}
+} // &lt;--- Блок зачинився, змінна миттєво зникла з пам'яті!
+
+console.log(second); // Помилка: ReferenceError (Для програми її більше немає)</code></pre>
+
+        <h3>Що таке Hoisting?</h3>
+        <p>
+          Hoisting (підняття) — це особливість JavaScript, коли перед виконанням
+          коду інтерпретатор (як <strong>Режисер перед виставою</strong>)
+          спочатку пробігається по сценарію і заздалегідь виділяє кімнати для
+          всіх змінних. Але з <code>var</code> та <code>let</code> він
+          поводиться по-різному.
+        </p>
+
+        <p>Приклад із var (Доброзичливий привид):</p>
+        <pre><code>console.log(first); // Виведе: undefined (Кімната вже є, але костюм "Hello" ще не видали)
+
+var first = "Hello";</code></pre>
+
+        <p>Приклад із let (Суворий охоронець та TDZ):</p>
+        <pre><code>console.log(second); // Помилка: ReferenceError (Доступ заблоковано охоронцем!)
+
+let second = "Hello";</code></pre>
+        <p>
+          Змінні <code>let</code> і <code>const</code> Режисер теж бачить
+          заздалегідь, але вішає на їхні двері замок, поки код не дійде до рядка
+          оголошення. Цей період заборони називається
+          <strong>TDZ (Тимчасова мертва зона)</strong>. Заглядати туди завчасно
+          не можна — програма зламається.
+        </p>
+      </section>
+
+      <!-- Підсумок -->
+      <section>
+        <h2>Підсумок (Правила розробника)</h2>
+
+        <ul>
+          <li>
+            <strong>const</strong> — залізобетонний сейф. Використовуй за
+            замовчуванням для всього, що не плануєш змінювати.
+          </li>
+          <li>
+            <strong>let</strong> — гнучка коробка. Використовуй лише тоді, коли
+            значення змінної точно буде перезаписуватися (наприклад, лічильник у
+            циклах).
+          </li>
+          <li>
+            <strong>var</strong> — старий "привид" із минулого. Має купу
+            прихованих багів через ігнорування блоків та підняття. У сучасному
+            коді <strong>не використовується</strong>.
+          </li>
+        </ul>
+
+        <p>
+          Завжди називай змінні латиницею. Якщо ім'я складається з декількох
+          слів, зшивай їх за правилом горбів верблюда —
+          <strong>camelCase</strong> (перше слово з маленької літери, всі
+          наступні — з великої):
+        </p>
+
+        <pre><code>let userName;         // Правильно
+let myFirstVariable;  // Читиабельно
+const siteTitle;      // Зрозуміло</code></pre>
+      </section>
+
+      <!-- ТЕМА 2: Оголошення декількох змінних -->
+      <section>
+        <h2>Оголошення декількох змінних</h2>
+
+        <p>Кожну змінну можна оголосити з нового рядка:</p>
+
+        <pre><code>let user = "John";
+let age = 25;
+let message = "Hello";</code></pre>
+
+        <button onclick="runVariables()">Запустити код</button>
+      </section>
+
+      <!-- ТЕМА 3: Аналогія з життя -->
+      <section>
+        <h2>Змінна — аналогія з життя</h2>
+
+        <p>
+          JavaScript — це динамічно типізована мова програмування. Це означає,
+          що змінна може зберігати дані різних типів під час виконання програми.
+        </p>
+
+        <p>
+          Щоб краще зрозуміти поняття змінної, уявімо її у вигляді коробки для
+          даних з унікальною назвою на наклейці.
+        </p>
+
+        <p>
+          Ми можемо покласти значення в коробку, а потім змінювати його стільки
+          разів, скільки потрібно.
+        </p>
+
+        <h3>Приклад</h3>
+
+        <pre><code>let message;
+
+message = "Привіт!";
+message = "Світ!";
+
+alert(message);</code></pre>
+
+        <button onclick="runExample()">Запустити код</button>
+
+        <p>
+          У цьому прикладі спочатку змінна
+          <strong>message</strong> отримує значення "Привіт!", а потім воно
+          змінюється на "Світ!".
+        </p>
+
+        <p>
+          Команда <strong>alert()</strong> показує повідомлення у вікні
+          браузера.
+        </p>
+      </section>
+
+      <!-- ТЕМА 4: Іменування змінних -->
+      <section>
+        <h2>Іменування змінних</h2>
+
+        <p>
+          У JavaScript є декілька правил, яких потрібно дотримуватися під час
+          створення імен змінних:
+        </p>
+
+        <p>1. Ім'я може містити букви, цифри, символи $ та _.</p>
+        <p>2. Ім'я не може починатися з цифри.</p>
+
+        <h3>Приклади правильних імен</h3>
+
+        <pre><code>let userName;
+let test123;
+let _name;
+let $price;</code></pre>
+
+        <h3>Верблюжий регістр (camelCase)</h3>
+
+        <p>
+          Якщо ім'я змінної складається з декількох слів, зазвичай
+          використовують camelCase.
+        </p>
+
+        <p>
+          Слова пишуться разом, без пробілів, а кожне наступне слово починається
+          з великої букви. Перше слово пишеться з маленької букви.
+        </p>
+
+        <pre><code>let myVeryLongName;</code></pre>
+
+        <p>
+          Детальніше про
+          <a
+            href="https://uk.wikipedia.org/wiki/Верблюжий_регістр"
+            target="_blank"
+          >
+            верблюжий регістр </a
+          >.
+        </p>
+
+        <h3>Символи $ та _</h3>
+
+        <p>
+          Символи долара ($) та підкреслення (_) також можна використовувати в
+          іменах змінних.
+        </p>
+
+        <pre><code>let $ = 1;
+let _ = 2;
+
+alert($ + _); // Виведе 3</code></pre>
+
+        <button onclick="runNaming()">Запустити код</button>
+
+        <p id="naming-result"></p>
+      </section>
+      <!-- ТЕМА 5: Регістр та нелатинські символи -->
+      <section>
+        <h2>Регістр та нелатинські символи</h2>
+
+        <h3>Регістр має значення</h3>
+
+        <p>
+          Змінні з іменами <strong>apple</strong> та <strong>APPLE</strong> — це
+          дві різні змінні. JavaScript розрізняє великі та маленькі літери.
+        </p>
+
+        <pre><code>let apple = "apple";
+let APPLE = "APPLE";
+
+alert(apple);
+alert(APPLE);</code></pre>
+
+        <button onclick="runCaseExample()">Запустити код</button>
+
+        <h3>Нелатинські букви</h3>
+
+        <p>
+          У JavaScript можна використовувати літери різних мов, зокрема
+          українські та китайські. Але зазвичай рекомендується використовувати
+          латиницю, щоб код було легше читати іншим програмістам.
+        </p>
+
+        <pre><code>let назва = "Мій сайт";
+let 你好 = "Привіт!";</code></pre>
+      </section>
+      <!-- ТЕМА 6: Зарезервовані слова -->
+      <section>
+        <h2>Зарезервовані слова</h2>
+
+        <p>
+          У JavaScript є список зарезервованих слів, які не можна
+          використовувати як імена змінних, тому що ці слова вже
+          використовуються самою мовою.
+        </p>
+
+        <p>
+          Наприклад: <strong>let, class, return, function</strong>
+          — це зарезервовані слова.
+        </p>
+
+        <h3>Приклади неправильного коду</h3>
+
+        <pre><code>let let = 5;       // Помилка
+let return = 5;    // Помилка
+let class = 10;    // Помилка</code></pre>
+
+        <p>
+          Такий код викличе синтаксичну помилку (SyntaxError), оскільки
+          зарезервовані слова не можна використовувати як назви змінних.
+        </p>
+
+        <h3>Як правильно?</h3>
+
+        <p>Замість зарезервованих слів використовуй інші назви:</p>
+
+        <pre><code>let userName = "Anna";
+let result = 5;
+let myClass = "JavaScript";</code></pre>
+
+        <p>
+          Детальніше можна прочитати в
+          <a
+            href="https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Lexical_grammar#ключові_слова"
+            target="_blank"
+          >
+            документації MDN про ключові слова JavaScript </a
+          >.
+        </p>
+      </section>
+    </main>
+
+    <!-- Підвал -->
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+    <script>
+      // Приклад із декількома змінними
+      function runVariables() {
+        let user = "John";
+        let age = 25;
+        let message = "Hello";
+
+        alert(user + ", " + age + ", " + message);
+      }
+
+      // Приклад зі зміною значення змінної
+      function runExample() {
+        let message;
+
+        message = "Привіт!";
+        message = "Світ!";
+
+        alert(message);
+      }
+      // Функція запуску прикладу
+      function runSurname() {
+        var Surname = "John";
+
+        // Виводимо результат на сторінку
+        document.getElementById("surname-result").textContent = Surname;
+      }
+
+      // Запуск прикладу з іменами змінних
+      function runNaming() {
+        let $ = 1;
+        let _ = 2;
+
+        // Виводимо суму змінних
+        document.getElementById("naming-result").textContent =
+          "Результат: " + ($ + _);
+      }
+
+      // Приклад: великі та маленькі літери
+      function runCaseExample() {
+        let apple = "apple";
+        let APPLE = "APPLE";
+
+        alert(apple);
+        alert(APPLE);
+      }
+
+      // Картка var
+      function runVar() {
+        var name = "John";
+        name = "Anna";
+
+        document.getElementById("var-result").textContent =
+          "Результат: " + name;
+      }
+
+      // Картка let
+      function runLet() {
+        let age = 25;
+        age = 30;
+
+        document.getElementById("let-result").textContent = "Результат: " + age;
+      }
+
+      // Картка const
+      function runConst() {
+        const pi = 3.14;
+
+        document.getElementById("const-result").textContent =
+          "Результат: " + pi;
+      }
+
+      // Область видимості let
+      function runLetScope() {
+        let age = 30;
+        let result = "";
+
+        if (true) {
+          let age = 25;
+          result += "Всередині блоку: " + age + "\n";
+        }
+
+        result += "Зовні блоку: " + age;
+
+        document.getElementById("let-scope-result").textContent = result;
+      }
+    </script>
+  </body>
+</html>

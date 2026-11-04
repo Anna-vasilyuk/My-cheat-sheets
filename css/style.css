@@ -1,0 +1,250 @@
+/* Кольори */
+:root {
+  --beige: #f0eee4;
+  --burgundy: #532d3a;
+  --blue: #adc5dd;
+  --olive: #757a4e;
+  --yellow: #ede8b1;
+  --white: #ffffff;
+}
+
+/* Загальні стилі */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--beige);
+  color: var(--burgundy);
+  padding: 30px;
+}
+
+/* Заголовок */
+header {
+  text-align: center;
+  padding: 50px;
+}
+
+header h1 {
+  font-size: 50px;
+}
+
+/* Основний блок */
+main {
+  width: 1000px;
+  margin: auto;
+}
+
+/* Картки */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.card {
+  grid-column: span 2;
+  padding: 30px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: var(--burgundy);
+  text-decoration: none;
+}
+
+/* Великі картки */
+.card:nth-child(1),
+.card:nth-child(2) {
+  grid-column: span 3;
+}
+
+/* Кольори */
+.card:nth-child(2),
+.card:nth-child(6) {
+  background: var(--yellow);
+}
+
+.card:nth-child(3) {
+  background: var(--olive);
+  color: var(--white);
+}
+
+.card:nth-child(4) {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+.card:nth-child(5) {
+  background: var(--white);
+}
+
+/* Заголовки карток */
+.card h3 {
+  margin-bottom: 10px;
+}
+
+/* Підвал */
+footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Сторінки з теорією-v8 */
+section {
+  background: var(--white);
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+/* Заголовок розділу */
+section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: var(--white);
+}
+
+/* Підзаголовки */
+section h3 {
+  font-size: 22px;
+  margin: 25px 0 10px;
+}
+
+/* Текст */
+section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+/* Посилання */
+section a {
+  color: var(--burgundy);
+  font-weight: bold;
+}
+
+/* Посилання назад */
+header a {
+  color: var(--burgundy);
+  text-decoration: none;
+}
+
+/* Блоки з кодом variables*/
+pre {
+  background: var(--beige);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  overflow-x: auto;
+}
+
+/* Текст коду */
+code {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--burgundy);
+}
+
+/* Кнопка запуску коду */
+button {
+  background: var(--burgundy);
+  color: var(--white);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: var(--olive);
+}
+/* розподіл карток */
+section {
+  background: var(--white);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+section h2 {
+  background: var(--olive);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Три картки змінних */
+.variable-cards .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Загальний вигляд картки */
+.variable-card {
+  padding: 25px;
+  border-radius: 10px;
+  color: var(--burgundy);
+}
+
+/* Кольори карток */
+.var-card {
+  background: var(--blue);
+}
+
+.let-card {
+  background: var(--yellow);
+}
+
+.const-card {
+  background: var(--blue);
+}
+
+/* Заголовки карток */
+.variable-card h3 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Текст карток */
+.variable-card p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Код у картках */
+.variable-card pre {
+  background: var(--beige);
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* Кнопки */
+.variable-card button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Таблиця */
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+section th,
+section td {
+  border: 1px solid var(--blue);
+  padding: 12px;
+  text-align: left;
+}
+
+section th {
+  background: var(--blue);
+  color: var(--burgundy);
+}
