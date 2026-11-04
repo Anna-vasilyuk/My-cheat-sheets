@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BigInt — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>BigInt</h1>
+      <p>Робота з великими цілими числами у JavaScript</p>
+      <a href="../../../pages/javascript/data-types.html"
+        >← Назад до типів даних</a
+      >
+    </header>
+
+    <main>
+      <section class="object-section">
+        <h2>Що таке BigInt?</h2>
+
+        <div class="number-card">
+          <h3>Великі цілі числа</h3>
+
+          <p>
+            Тип <strong>BigInt</strong> дозволяє працювати з дуже великими
+            цілими числами, які не можуть бути точно представлені типом Number.
+          </p>
+
+          <p>
+            Звичайний тип Number має обмеження: найбільше безпечне ціле число —
+            <strong>9007199254740991</strong>.
+          </p>
+
+          <p>
+            BigInt був доданий до JavaScript для роботи з цілими числами
+            довільної довжини. Наприклад, він може бути корисним у криптографії
+            та інших обчисленнях із великими числами.
+          </p>
+
+          <pre><code>const bigNumber = 398479857587565565n;
+
+console.log(bigNumber);</code></pre>
+
+          <button onclick="showBigInt()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="bigint-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Особливості BigInt</h2>
+
+        <div class="number-card">
+          <h3>BigInt і Number</h3>
+
+          <p>
+            Важливо пам'ятати, що не можна безпосередньо додавати значення типу
+            BigInt і Number. Це призведе до помилки.
+          </p>
+
+          <pre><code>const bigNumber = 398479857587565565n;
+const baseNumber = 2;
+
+console.log(bigNumber + baseNumber);</code></pre>
+
+          <button onclick="checkBigIntError()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="bigint-error-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+
+        <div class="number-card">
+          <h3>Як правильно додавати BigInt?</h3>
+
+          <p>
+            Щоб виконати додавання, обидва значення повинні мати тип BigInt. Для
+            цього після цілого числа додається літера n.
+          </p>
+
+          <pre><code>const bigNumber = 398479857587565565n;
+const baseNumber = 2n;
+
+console.log(bigNumber + baseNumber);</code></pre>
+
+          <button onclick="addBigInt()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="bigint-sum-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="number-card">
+          <ul>
+            <li>BigInt використовується для дуже великих цілих чисел.</li>
+            <li>
+              Для створення BigInt використовують літеру n наприкінці числа.
+            </li>
+            <li>BigInt і Number не можна безпосередньо додавати.</li>
+            <li>
+              Для математичних операцій обидва значення повинні бути BigInt.
+            </li>
+            <li>BigInt не підтримує дробові числа.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+
+    <script>
+      // Приклад 1. Робота з BigInt
+      function showBigInt() {
+        const bigNumber = 398479857587565565n;
+
+        document.getElementById("bigint-result").textContent =
+          bigNumber.toString();
+      }
+
+      // Приклад 2. Помилка при додаванні BigInt і Number
+      function checkBigIntError() {
+        const bigNumber = 398479857587565565n;
+        const baseNumber = 2;
+
+        try {
+          const result = bigNumber + baseNumber;
+
+          document.getElementById("bigint-error-result").textContent =
+            result.toString();
+        } catch (error) {
+          document.getElementById("bigint-error-result").textContent =
+            "Помилка: " + error.message;
+        }
+      }
+
+      // Приклад 3. Правильне додавання BigInt
+      function addBigInt() {
+        const bigNumber = 398479857587565565n;
+        const baseNumber = 2n;
+
+        const result = bigNumber + baseNumber;
+
+        document.getElementById("bigint-sum-result").textContent =
+          result.toString();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbol — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Symbol</h1>
+      <p>Створення унікальних ідентифікаторів у JavaScript</p>
+      <a href="../../../pages/javascript/data-types.html"
+        >← Назад до типів даних</a
+      >
+    </header>
+
+    <main>
+      <section class="number-section">
+        <h2>Symbol</h2>
+
+        <div class="number-card">
+          <h3>Що таке Symbol?</h3>
+
+          <p>
+            Symbol — це примітивний тип даних, який використовується для
+            створення унікальних ідентифікаторів.
+          </p>
+
+          <p>
+            Навіть якщо створити два символи з однаковим описом, вони все одно
+            будуть різними.
+          </p>
+
+          <pre><code>const symbol1 = Symbol('id');
+const symbol2 = Symbol('id');
+
+console.log(symbol1 === symbol2);
+// false</code></pre>
+
+          <h3>Порівняємо зі звичайними числами</h3>
+
+          <pre><code>const number1 = 1;
+const number2 = 1;
+
+console.log(number1 === number2);
+// true</code></pre>
+
+          <button onclick="showSymbol()">Запустити приклад</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="symbol-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+
+        <div class="number-card">
+          <h3>Коли використовується Symbol?</h3>
+
+          <ul>
+            <li>Для створення унікальних ідентифікаторів.</li>
+            <li>Для створення спеціальних властивостей об'єктів.</li>
+            <li>Щоб уникати випадкового збігу ключів в об'єктах.</li>
+          </ul>
+
+          <p>
+            Поки що достатньо запам'ятати, що кожен Symbol є унікальним.
+            Детальніше ми розглянемо його в окремій темі.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>JavaScript Cheat Sheet</p>
+    </footer>
+
+    <script>
+      function showSymbol() {
+        const symbol1 = Symbol("id");
+        const symbol2 = Symbol("id");
+
+        const number1 = 1;
+        const number2 = 1;
+
+        document.getElementById("symbol-result").textContent =
+          "Symbol порівняння: " +
+          (symbol1 === symbol2) +
+          "\nЧисла порівняння: " +
+          (number1 === number2);
+      }
+    </script>
+  </body>
+</html>

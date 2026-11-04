@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>typeof — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Оператор typeof</h1>
+      <p>Як визначити тип даних у JavaScript</p>
+      <a href="../../../pages/javascript/data-types.html"
+        >← Назад до типів даних</a
+      >
+    </header>
+
+    <main>
+      <section class="object-section">
+        <h2>1. Що таке typeof?</h2>
+
+        <div class="object-card">
+          <p>
+            <strong>typeof</strong> — це оператор JavaScript, який дозволяє
+            визначити тип даних змінної або виразу.
+          </p>
+
+          <p>
+            Він повертає назву типу у вигляді рядка. Це корисно для перевірки
+            даних та керування логікою програми.
+          </p>
+
+          <pre><code>let age = 25;
+
+console.log(typeof age); // "object"</code></pre>
+
+          <button onclick="showTypeofExample()">Запустити приклад</button>
+          <div class="result-box">
+            <p id="typeof-result"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>2. Визначення різних типів даних</h2>
+
+        <div class="object-card">
+          <p>
+            Оператор <strong>typeof</strong> можна використовувати для перевірки
+            змінних із різними типами даних.
+          </p>
+
+          <pre><code>let age = 25;
+console.log(typeof age); // "object"
+
+let name = "John";
+console.log(typeof name); // "string"
+
+let isStudent = true;
+console.log(typeof isStudent); // "boolean"</code></pre>
+
+          <button onclick="showDifferentTypes()">Запустити приклад</button>
+          <div class="result-box">
+            <p id="different-types-result"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>3. typeof з дужками та без них</h2>
+
+        <div class="object-card">
+          <p>
+            Оператор <strong>typeof</strong> можна використовувати як із
+            дужками, так і без них.
+          </p>
+
+          <pre><code>let age = 25;
+
+console.log(typeof age);   // "object"
+console.log(typeof (age)); // "object"</code></pre>
+
+          <p>
+            Якщо всередині дужок записати вираз, JavaScript спочатку обчислить
+            його, а потім визначить тип результату.
+          </p>
+
+          <pre><code>console.log(typeof (10 + 5)); // "object"
+console.log(typeof ("Hello" + " world")); // "string"</code></pre>
+
+          <button onclick="showParentheses()">Запустити приклад</button>
+          <div class="result-box">
+            <p id="parentheses-result"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function showTypeofExample() {
+        let age = 25;
+        document.getElementById("typeof-result").textContent = typeof age;
+      }
+
+      function showDifferentTypes() {
+        let age = 25;
+        let name = "John";
+        let isStudent = true;
+
+        document.getElementById("different-types-result").textContent =
+          "typeof age: " +
+          typeof age +
+          "\n" +
+          "typeof name: " +
+          typeof name +
+          "\n" +
+          "typeof isStudent: " +
+          typeof isStudent;
+      }
+
+      function showParentheses() {
+        document.getElementById("parentheses-result").textContent =
+          "typeof (10 + 5): " +
+          typeof (10 + 5) +
+          "\n" +
+          'typeof ("Hello" + " world"): ' +
+          typeof ("Hello" + " world");
+      }
+    </script>
+  </body>
+</html>

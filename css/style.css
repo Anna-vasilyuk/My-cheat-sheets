@@ -248,3 +248,231 @@ section th {
   background: var(--blue);
   color: var(--burgundy);
 }
+
+/* Картки типів даних */
+.data-types-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* Загальний вигляд карток */
+.data-type-card {
+  padding: 30px;
+  border-radius: 12px;
+  color: var(--burgundy);
+}
+
+/* Картка об'єктних типів */
+.object-card {
+  background: var(--yellow);
+}
+
+/* Картка примітивних типів */
+.primitive-card {
+  background: var(--blue);
+}
+
+/* Заголовки карток */
+.data-type-card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* Опис карток */
+.data-type-card p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Посилання на типи */
+.data-type-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Кнопки-посилання */
+.data-type-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--white);
+  color: var(--burgundy);
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Ефект наведення */
+.data-type-links a:hover {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+/* Сторінка Number */
+
+.number-section {
+  background: var(--white);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  h2 {
+    background: var(--olive);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Картки Number */
+.number-card {
+  background: var(--blue);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  h3 {
+    color: var(--burgundy);
+    font-size: 24px;
+    margin: 10px 0 15px;
+  }
+
+  p {
+    color: #333333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  pre {
+    background: var(--beige);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  ul {
+    padding-left: 25px;
+    line-height: 2;
+    color: #333333;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+/* Сторінка object */
+
+.object-section {
+  background: var(--white);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  h2 {
+    background: var(--olive);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Картки object */
+.object-card {
+  background: var(--yellow);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  h3 {
+    color: var(--burgundy);
+    font-size: 24px;
+    margin: 10px 0 15px;
+  }
+
+  p {
+    color: #333333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  pre {
+    background: var(--beige);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  ul {
+    padding-left: 25px;
+    line-height: 2;
+    color: #333333;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+/* Картки object-категорії */
+.object-category {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  .object-category-header {
+    background: var(--burgundy);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    p {
+      color: var(--white);
+      margin: 0;
+    }
+  }
+
+  .object-category-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .object-type-card {
+    display: block;
+    background: var(--blue);
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--burgundy);
+    transition: 0.3s;
+
+    h4 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #333333;
+      margin-bottom: 15px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      background: var(--yellow);
+    }
+  }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Number</h1>
+      <p>Числовий тип даних у JavaScript</p>
+      <a href="../data-types.html">← Назад до типів даних</a>
+    </header>
+
+    <main>
+      <section class="number-section">
+        <h2>Що таке Number?</h2>
+
+        <div class="number-card">
+          <h3>Приклади чисел</h3>
+
+          <pre><code>const age = 30;
+const price = 19.99;</code></pre>
+
+          <button onclick="showNumbers()">Запустити код</button>
+
+          <div class="result-box">
+            <p id="numbers-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Особливості чисел</h2>
+
+        <div class="number-card">
+          <h3>Точність обчислень</h3>
+
+          <p>
+            Під час роботи з дробовими числами JavaScript іноді може повертати
+            неточні результати.
+          </p>
+
+          <pre><code>let first = 0.2;
+let second = 0.1;
+
+console.log(first + second);</code></pre>
+
+          <button onclick="checkNumber()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="number-result"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="number-card">
+          <ul>
+            <li>Number — примітивний тип даних.</li>
+            <li>Зберігає цілі та дробові числа.</li>
+            <li>Для перевірки типу використовують typeof.</li>
+            <li>Дробові обчислення можуть мати похибки.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+    <script>
+      function showNumbers() {
+        const age = 30;
+        const price = 19.99;
+
+        document.getElementById("numbers-result").innerHTML =
+          "age = " +
+          age +
+          "<br>" +
+          "Тип age: " +
+          typeof age +
+          "<br><br>" +
+          "price = " +
+          price +
+          "<br>" +
+          "Тип price: " +
+          typeof price;
+      }
+
+      function checkNumber() {
+        let first = 0.2;
+        let second = 0.1;
+
+        let result = first + second;
+
+        document.getElementById("number-result").textContent = result;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Boolean</h1>
+      <p>Булевий тип даних у JavaScript</p>
+      <a href="../../../pages/javascript/data-types.html"
+        >← Назад до типів даних</a
+      >
+    </header>
+
+    <main>
+      <section class="number-section">
+        <h2>Що таке Boolean?</h2>
+
+        <div class="number-card">
+          <h3>Булевий тип даних</h3>
+
+          <p>
+            Boolean — це примітивний тип даних у JavaScript, який має лише два
+            можливі значення:
+            <strong>true</strong> (істина) та <strong>false</strong> (неправда).
+          </p>
+
+          <p>
+            Булеві значення використовуються для перевірки інформації та
+            визначення того, чи є певна умова правильною або неправильною.
+          </p>
+
+          <pre><code>const isLogged = true;
+const hasPermission = false;</code></pre>
+
+          <button onclick="showBoolean()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="boolean-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Два можливі значення</h2>
+
+        <div class="number-card">
+          <h3>true — істина</h3>
+
+          <p>
+            Значення true означає, що твердження є правильним або умова
+            виконується.
+          </p>
+
+          <pre><code>const isStudent = true;
+
+console.log(isStudent);</code></pre>
+
+          <button onclick="showTrue()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="true-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+
+        <div class="number-card">
+          <h3>false — неправда</h3>
+
+          <p>
+            Значення false означає, що твердження є неправильним або умова не
+            виконується.
+          </p>
+
+          <pre><code>const isAdmin = false;
+
+console.log(isAdmin);</code></pre>
+
+          <button onclick="showFalse()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="false-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Перевірка типу даних</h2>
+
+        <div class="number-card">
+          <h3>Оператор typeof</h3>
+
+          <p>
+            Для перевірки типу даних можна використовувати оператор typeof. Він
+            повертає назву типу, до якого належить значення.
+          </p>
+
+          <pre><code>const isLogged = true;
+
+console.log(typeof isLogged);
+
+// Результат: "boolean"</code></pre>
+
+          <button onclick="checkBooleanType()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="type-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="number-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="number-card">
+          <ul>
+            <li>Boolean — примітивний тип даних.</li>
+            <li>Має лише два значення: true та false.</li>
+            <li>true означає істину.</li>
+            <li>false означає неправду.</li>
+            <li>Для перевірки типу використовується typeof.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>JavaScript Cheat Sheet</p>
+    </footer>
+
+    <script>
+      // Приклад 1. Булеві значення
+      function showBoolean() {
+        const isLogged = true;
+        const hasPermission = false;
+
+        document.getElementById("boolean-result").textContent =
+          "isLogged: " + isLogged + " | hasPermission: " + hasPermission;
+      }
+
+      // Приклад 2. Значення true
+      function showTrue() {
+        const isStudent = true;
+
+        document.getElementById("true-result").textContent = isStudent;
+      }
+
+      // Приклад 3. Значення false
+      function showFalse() {
+        const isAdmin = false;
+
+        document.getElementById("false-result").textContent = isAdmin;
+      }
+
+      // Приклад 4. Перевірка типу
+      function checkBooleanType() {
+        const isLogged = true;
+
+        document.getElementById("type-result").textContent = typeof isLogged;
+      }
+    </script>
+  </body>
+</html>

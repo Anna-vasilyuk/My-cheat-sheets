@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Null та Undefined — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Null та Undefined</h1>
+      <p>Коли значення відсутнє або ще не задане</p>
+      <a href="../../../pages/javascript/data-types.html"
+        >← Назад до типів даних</a
+      >
+    </header>
+
+    <main>
+      <section class="number-section">
+        <h2>Null та Undefined</h2>
+
+        <div class="number-card">
+          <h3>У чому різниця?</h3>
+
+          <p>
+            Null та Undefined використовуються тоді, коли значення відсутнє. Але
+            між ними є різниця. Щоб її зрозуміти, уявімо тримач для туалетного
+            паперу.
+          </p>
+
+          <h3>0 — втулка є, паперу немає</h3>
+
+          <p>
+            Це нуль. Значення існує, і воно дорівнює 0. Нуль — це не відсутність
+            значення.
+          </p>
+
+          <pre><code>const number = 0;
+
+console.log(number); // 0</code></pre>
+
+          <h3>null — є тримач, але він порожній</h3>
+
+          <p>
+            Ми свідомо залишили тримач порожнім. У JavaScript це означає, що
+            значення навмисно відсутнє.
+          </p>
+
+          <pre><code>const emptyValue = null;
+
+console.log(emptyValue); // null</code></pre>
+
+          <h3>undefined — немає навіть тримача</h3>
+
+          <p>
+            Значення ще не було задане. Змінна оголошена, але їй нічого не
+            присвоїли.
+          </p>
+
+          <pre><code>let variable;
+
+console.log(variable); // undefined</code></pre>
+
+          <h3>Перевірка типів</h3>
+
+          <pre><code>console.log(typeof 0);         // "number"
+console.log(typeof null);      // "object"
+console.log(typeof undefined); // "undefined"</code></pre>
+
+          <button onclick="showNullUndefined()">Запустити приклад</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="null-undefined-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+
+    <script>
+      function showNullUndefined() {
+        const number = 0;
+        const emptyValue = null;
+        let variable;
+
+        document.getElementById("null-undefined-result").textContent =
+          "0: " +
+          number +
+          "\nnull: " +
+          emptyValue +
+          "\nundefined: " +
+          variable +
+          "\n\nТип 0: " +
+          typeof number +
+          "\nТип null: " +
+          typeof emptyValue +
+          "\nТип undefined: " +
+          typeof variable;
+      }
+    </script>
+  </body>
+</html>

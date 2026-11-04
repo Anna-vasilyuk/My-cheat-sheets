@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>String</h1>
+      <p>Рядковий тип даних у JavaScript</p>
+      <a href="../data-types.html">← Назад до типів даних</a>
+    </header>
+
+    <main>
+      <!-- Що таке String -->
+      <section class="number-section">
+        <h2>Що таке String?</h2>
+
+        <div class="number-card">
+          <h3>Рядки (String)</h3>
+
+          <p>
+            String — це примітивний тип даних у JavaScript, який
+            використовується для представлення текстової інформації. Рядок може
+            містити літери, цифри, символи та пробіли.
+          </p>
+
+          <pre><code>const greeting = "Hello!";
+const name = "Anna";
+const message = "Welcome to JavaScript!";</code></pre>
+
+          <button onclick="showString()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="string-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Способи створення рядків -->
+      <section class="number-section">
+        <h2>Як створювати рядки?</h2>
+
+        <div class="number-card">
+          <h3>Три способи запису</h3>
+
+          <p>
+            У JavaScript рядки можна створювати за допомогою одинарних лапок ('
+            '), подвійних лапок (" ") або зворотних лапок (` `).
+          </p>
+
+          <pre><code>const first = 'Hello!';
+const second = "Hello!";
+const third = `Hello!`;</code></pre>
+
+          <p>
+            Усі три способи створюють значення типу String. Проте зворотні лапки
+            мають додаткові можливості.
+          </p>
+
+          <button onclick="showQuotes()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="quotes-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Незмінність рядків -->
+      <section class="number-section">
+        <h2>Незмінність рядків</h2>
+
+        <div class="number-card">
+          <h3>Immutability</h3>
+
+          <p>
+            Після створення рядка не можна змінити окремий символ безпосередньо.
+            Рядки в JavaScript є незмінними (immutable).
+          </p>
+
+          <p>
+            Метод replace() створює новий рядок із заміненим фрагментом, але
+            початковий рядок залишається незмінним.
+          </p>
+
+          <pre><code>let originalString = "Hello, world!";
+
+let modifiedString = originalString.replace(
+    "world",
+    "JavaScript"
+);
+
+console.log(modifiedString);
+console.log(originalString);</code></pre>
+
+          <button onclick="replaceString()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="replace-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Шаблонні рядки -->
+      <section class="number-section">
+        <h2>Шаблонні рядки</h2>
+
+        <div class="number-card">
+          <h3>Template literals</h3>
+
+          <p>
+            Зворотні лапки (` `) дозволяють вставляти змінні безпосередньо в
+            текст за допомогою конструкції ${}.
+          </p>
+
+          <p>
+            Також вони дозволяють створювати багаторядкові рядки без додаткових
+            символів перенесення.
+          </p>
+
+          <pre><code>const name = "Anna";
+const age = 20;
+
+const message = `Мене звати ${name}.
+Мені ${age} років.`;
+
+console.log(message);</code></pre>
+
+          <button onclick="showTemplate()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="template-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Що запам'ятати -->
+      <section class="number-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="number-card">
+          <ul>
+            <li>String використовується для зберігання тексту.</li>
+            <li>Рядки можна створювати через одинарні та подвійні лапки.</li>
+            <li>Зворотні лапки дозволяють використовувати ${}.</li>
+            <li>Рядки є незмінними (immutable).</li>
+            <li>Метод replace() створює новий рядок.</li>
+            <li>Для перевірки типу можна використовувати typeof.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+
+    <script>
+      // Приклад 1. Що таке String
+      function showString() {
+        const greeting = "Hello!";
+        const name = "Anna";
+        const message = "Welcome to JavaScript!";
+
+        document.getElementById("string-result").textContent =
+          greeting + " " + name + " — " + message;
+      }
+
+      // Приклад 2. Три способи створення рядків
+      function showQuotes() {
+        const first = "Hello!";
+        const second = "Hello!";
+        const third = `Hello!`;
+
+        document.getElementById("quotes-result").textContent =
+          first + " | " + second + " | " + third;
+      }
+
+      // Приклад 3. Метод replace()
+      function replaceString() {
+        let originalString = "Hello, world!";
+
+        let modifiedString = originalString.replace("world", "JavaScript");
+
+        document.getElementById("replace-result").textContent =
+          "Новий рядок: " +
+          modifiedString +
+          " | Початковий рядок: " +
+          originalString;
+      }
+
+      // Приклад 4. Template literals
+      function showTemplate() {
+        const name = "Anna";
+        const age = 20;
+
+        const message = `Мене звати ${name}.
+Мені ${age} років.`;
+
+        document.getElementById("template-result").textContent = message;
+      }
+    </script>
+  </body>
+</html>

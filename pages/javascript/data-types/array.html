@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Array</h1>
+      <p>Масиви та зберігання набору значень у JavaScript</p>
+      <a href="../javascript.html">← Назад до JavaScript</a>
+    </header>
+
+    <main>
+      <section class="object-section">
+        <h2>Що таке Array?</h2>
+
+        <div class="object-card">
+          <h3>Масиви в JavaScript</h3>
+
+          <p>
+            Array (масив) — це впорядкована колекція значень. Значення всередині
+            масиву називаються елементами.
+          </p>
+
+          <p>
+            Кожен елемент має свою числову позицію, яка називається індексом.
+          </p>
+
+          <pre><code>const cups = [
+    'cup0',
+    'cup1',
+    'cup2',
+    'cup3',
+    'cup4',
+    'cup5'
+];</code></pre>
+
+          <button onclick="showArray()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="array-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Індекси масиву</h2>
+
+        <div class="object-card">
+          <h3>З чого починається індексація?</h3>
+
+          <p>
+            Важливо пам'ятати, що індексація масиву починається з нуля, а не з
+            одиниці.
+          </p>
+
+          <pre><code>const cups = [
+    'cup0',
+    'cup1',
+    'cup2'
+];
+
+console.log(cups[0]); // cup0
+console.log(cups[1]); // cup1
+console.log(cups[2]); // cup2</code></pre>
+
+          <button onclick="showIndexes()">Перевірити індекси</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="indexes-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Різні типи даних в одному масиві</h2>
+
+        <div class="object-card">
+          <h3>Масиви не типізовані</h3>
+
+          <p>
+            У JavaScript масив може містити значення різних типів даних
+            одночасно: рядки, числа, булеві значення, об'єкти та навіть інші
+            масиви.
+          </p>
+
+          <pre><code>const mixedArray = [
+    'Hello',
+    20,
+    true,
+    null
+];</code></pre>
+
+          <button onclick="showMixedArray()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="mixed-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Array — це об'єктний тип даних</h2>
+
+        <div class="object-card">
+          <h3>Перевірка типу масиву</h3>
+
+          <p>
+            Масиви належать до об'єктного типу даних. Тому оператор typeof
+            повертає object.
+          </p>
+
+          <pre><code>const cups = ['cup0', 'cup1', 'cup2'];
+
+console.log(typeof cups);
+// object
+
+console.log(Array.isArray(cups));
+// true</code></pre>
+
+          <p>
+            Щоб точно перевірити, чи є значення масивом, використовують метод
+            Array.isArray().
+          </p>
+
+          <button onclick="checkArrayType()">Перевірити тип</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="type-array-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="object-card">
+          <ul>
+            <li>Array — об'єктний тип даних.</li>
+            <li>Масив зберігає впорядковану колекцію значень.</li>
+            <li>Елементи масиву мають індекси.</li>
+            <li>Індексація починається з 0.</li>
+            <li>В одному масиві можуть бути різні типи даних.</li>
+            <li>Для перевірки масиву використовують Array.isArray().</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+
+    <script>
+      // Приклад 1. Створення масиву
+      function showArray() {
+        const cups = ["cup0", "cup1", "cup2", "cup3", "cup4", "cup5"];
+
+        document.getElementById("array-result").textContent =
+          "Елементи масиву: " +
+          cups.join(", ") +
+          "\nКількість елементів: " +
+          cups.length;
+      }
+
+      // Приклад 2. Індекси масиву
+      function showIndexes() {
+        const cups = ["cup0", "cup1", "cup2"];
+
+        document.getElementById("indexes-result").textContent =
+          "Індекс 0: " +
+          cups[0] +
+          "\nІндекс 1: " +
+          cups[1] +
+          "\nІндекс 2: " +
+          cups[2];
+      }
+
+      // Приклад 3. Різні типи даних
+      function showMixedArray() {
+        const mixedArray = ["Hello", 20, true, null];
+
+        document.getElementById("mixed-result").textContent =
+          "Масив: " +
+          mixedArray.join(", ") +
+          "\nТип першого елемента: " +
+          typeof mixedArray[0] +
+          "\nТип другого елемента: " +
+          typeof mixedArray[1] +
+          "\nТип третього елемента: " +
+          typeof mixedArray[2];
+      }
+
+      // Приклад 4. Перевірка типу
+      function checkArrayType() {
+        const cups = ["cup0", "cup1", "cup2"];
+
+        document.getElementById("type-array-result").textContent =
+          "typeof: " +
+          typeof cups +
+          "\nArray.isArray(): " +
+          Array.isArray(cups);
+      }
+    </script>
+  </body>
+</html>

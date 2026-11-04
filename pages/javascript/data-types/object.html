@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Object</h1>
+      <p>Об'єкти, їхні властивості та методи у JavaScript</p>
+      <a href="../data-types.html">← Назад до типів даних</a>
+    </header>
+
+    <main>
+      <section class="object-section">
+        <h2>Що таке Object?</h2>
+
+        <div class="object-card">
+          <h3>Об'єкт у JavaScript</h3>
+
+          <p>
+            Object (об'єкт) — це складний тип даних, який дозволяє зберігати
+            декілька пов'язаних значень та функцій в одному місці.
+          </p>
+
+          <p>
+            Об'єкт можна порівняти зі звичайною чашкою. У неї є характеристики:
+            колір, форма, матеріал та вага. А також дії, які з нею можна
+            виконувати.
+          </p>
+
+          <p>
+            У JavaScript характеристики називаються
+            <strong>властивостями (properties)</strong>, а дії —
+            <strong>методами (methods)</strong>.
+          </p>
+
+          <pre><code>const cup = {
+    color: 'white',
+    form: 'standard',
+    material: 'porcelain',
+    weight: 200
+};</code></pre>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Властивості об'єкта (Properties)</h2>
+
+        <div class="object-card">
+          <h3>Що таке властивості?</h3>
+
+          <p>
+            Властивості — це характеристики об'єкта, які описують його. Кожна
+            властивість має назву та значення.
+          </p>
+
+          <pre><code>const cup = {
+    color: 'white',
+    form: 'standard',
+    material: 'porcelain',
+    weight: 200
+};</code></pre>
+
+          <p>
+            Щоб отримати значення властивості, можна звернутися до неї через
+            крапку.
+          </p>
+
+          <pre><code>console.log(cup.color);
+// white
+
+console.log(cup.weight);
+// 200</code></pre>
+
+          <button onclick="showProperties()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="properties-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Методи об'єкта (Methods)</h2>
+
+        <div class="object-card">
+          <h3>Що таке методи?</h3>
+
+          <p>
+            Методи — це функції, які є властивостями об'єкта. Вони описують дії,
+            які можна виконати за допомогою цього об'єкта.
+          </p>
+
+          <pre><code>const cup = {
+    drinkStart: function() {
+        console.log('Drink start');
+    },
+
+    drinkEnd: function() {
+        console.log('Drink end');
+    }
+};</code></pre>
+
+          <p>
+            Для виклику методу потрібно вказати назву об'єкта, крапку, назву
+            методу та круглі дужки.
+          </p>
+
+          <pre><code>cup.drinkStart();
+// Drink start
+
+cup.drinkEnd();
+// Drink end</code></pre>
+
+          <button onclick="showMethods()">Запустити код</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="methods-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Повний приклад об'єкта</h2>
+
+        <div class="object-card">
+          <h3>Об'єкт cup</h3>
+
+          <p>Об'єднаємо властивості та методи в одному об'єкті.</p>
+
+          <pre><code>const cup = {
+    color: 'white',
+    form: 'standard',
+    material: 'porcelain',
+    weight: 200,
+
+    drinkStart: function() {
+        console.log('Drink start');
+    },
+
+    drinkEnd: function() {
+        console.log('Drink end');
+    }
+};</code></pre>
+
+          <button onclick="showFullObject()">Запустити приклад</button>
+
+          <div class="result-box">
+            <h4>Результат:</h4>
+            <p id="object-result">Тут з'явиться результат</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-section">
+        <h2>Що потрібно запам'ятати?</h2>
+
+        <div class="object-card">
+          <ul>
+            <li>Object — тип даних для зберігання пов'язаних даних.</li>
+            <li>Властивості (properties) описують характеристики об'єкта.</li>
+            <li>Методи (methods) описують дії об'єкта.</li>
+            <li>Для звернення до властивості використовують крапку.</li>
+            <li>Для виклику методу потрібні круглі дужки.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>My Cheat Sheets © 2026</p>
+    </footer>
+
+    <script>
+      // Властивості об'єкта
+      function showProperties() {
+        const cup = {
+          color: "white",
+          form: "standard",
+          material: "porcelain",
+          weight: 200,
+        };
+
+        document.getElementById("properties-result").textContent =
+          "Колір: " +
+          cup.color +
+          "\nФорма: " +
+          cup.form +
+          "\nМатеріал: " +
+          cup.material +
+          "\nВага: " +
+          cup.weight;
+      }
+
+      // Методи об'єкта
+      function showMethods() {
+        const cup = {
+          drinkStart: function () {
+            return "Drink start";
+          },
+
+          drinkEnd: function () {
+            return "Drink end";
+          },
+        };
+
+        const result = cup.drinkStart() + "\n" + cup.drinkEnd();
+
+        document.getElementById("methods-result").textContent = result;
+      }
+
+      // Повний об'єкт
+      function showFullObject() {
+        const cup = {
+          color: "white",
+          form: "standard",
+          material: "porcelain",
+          weight: 200,
+
+          drinkStart: function () {
+            return "Drink start";
+          },
+
+          drinkEnd: function () {
+            return "Drink end";
+          },
+        };
+
+        document.getElementById("object-result").textContent =
+          "Колір: " +
+          cup.color +
+          "\nФорма: " +
+          cup.form +
+          "\nМатеріал: " +
+          cup.material +
+          "\nВага: " +
+          cup.weight +
+          "\n\n" +
+          cup.drinkStart() +
+          "\n" +
+          cup.drinkEnd();
+      }
+    </script>
+  </body>
+</html>
