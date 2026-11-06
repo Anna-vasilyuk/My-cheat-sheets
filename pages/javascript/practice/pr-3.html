@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тренажер: Квадрати чисел від 1 до 9 — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Тренажер: Квадрати чисел від 1 до 9</h1>
+      <p>Практичне порівняння роботи циклів for, while та do...while</p>
+      <a href="../practice-hub.html">← Назад до Хабу практики</a>
+    </header>
+
+    <main>
+      <!-- Вступ -->
+      <section>
+        <h2>Суть завдання</h2>
+        <p>
+          Завдання полягає в тому, щоб послідовно перебрати всі числа від 1 до
+          9, піднести кожне з них до квадрата (помножити на самого себе) та
+          вивести результат користувачу. Нижче представлено три різні варіанти
+          коду, які виконують цю роботу.
+        </p>
+      </section>
+
+      <!-- Варіант 1: Цикл for -->
+      <section>
+        <h2>Варіант 1. Через цикл "for"</h2>
+        <p>
+          Класичний варіант, де початок, умова та крок лічильника зібрані в
+          одному рядку:
+        </p>
+
+        <div class="code-example">
+          <pre><code>for (let i = 1; i &lt;= 9; i++) {
+  alert(i * i);
+}</code></pre>
+        </div>
+
+        <button onclick="runForSquares()">Тестувати цикл for</button>
+      </section>
+
+      <!-- Варіант 2: Цикл while -->
+      <section>
+        <h2>Варіант 2. Через цикл "while"</h2>
+        <p>
+          Варіант із передумовою, де лічильник створено заздалегідь, а крок
+          <code>i++</code> виконується наприкінці тіла циклу:
+        </p>
+
+        <div class="code-example">
+          <pre><code>let i = 1;
+while (i &lt;= 9) {
+  alert(i * i);
+  i++;
+}</code></pre>
+        </div>
+
+        <button onclick="runWhileSquares()">Тестувати цикл while</button>
+      </section>
+
+      <!-- Варіант 3: Цикл do...while -->
+      <section>
+        <h2>Варіант 3. Через цикл "do...while"</h2>
+        <p>
+          Варіант із постумовою, де перша дія виконується гарантовано без
+          початкових перевірок умови:
+        </p>
+
+        <div class="code-example">
+          <pre><code>let i = 1;
+do {
+  alert(i * i);
+  i++;
+} while (i &lt;= 9);</code></pre>
+        </div>
+
+        <button onclick="runDoWhileSquares()">Тестувати цикл do...while</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT СКРИПТИ (Твій написаний код в дії)
+         ========================================================================== -->
+    <script>
+      // 1. Тест твого циклу for
+      function runForSquares() {
+        for (let i = 1; i <= 9; i++) {
+          alert(`Цикл FOR ➡️ Квадрат числа ${i} дорівнює: ${i * i}`);
+        }
+      }
+
+      // 2. Тест твого циклу while
+      function runWhileSquares() {
+        let i = 1;
+        while (i <= 9) {
+          alert(`Цикл WHILE ➡️ Квадрат числа ${i} дорівнює: ${i * i}`);
+          i++;
+        }
+      }
+
+      // 3. Тест твого циклу do...while
+      function runDoWhileSquares() {
+        let i = 1;
+        do {
+          alert(`Цикл DO...WHILE ➡️ Квадрат числа ${i} дорівнює: ${i * i}`);
+          i++;
+        } while (i <= 9);
+      }
+    </script>
+  </body>
+</html>
