@@ -6,16 +6,17 @@
     <title>Оператори порівняння — JavaScript</title>
     <link rel="stylesheet" href="../../../css/style.css" />
   </head>
+
   <body>
     <header>
       <h1>Оператори порівняння</h1>
-      <p>Як порівнювати значення в JavaScript</p>
-      <a href="operators.html">← Назад до операторів</a>
+      <p>Визначення відношень між значеннями в JavaScript</p>
+      <a href="operators.html">← Назад до списку операторів</a>
     </header>
 
-    <main class="comparison-page">
+    <main>
       <!-- Вступ -->
-      <section class="comparison-intro">
+      <section>
         <h2>Що таке оператори порівняння?</h2>
         <p>
           Оператори порівняння дозволяють визначати відношення між значеннями та
@@ -24,32 +25,18 @@
         </p>
         <p>
           Результатом порівняння завжди є логічне значення:
-          <strong>true</strong> або <strong>false</strong>.
+          <code>true</code> або <code>false</code>.
         </p>
       </section>
 
-      <!-- Більше та менше -->
-      <section class="comparison-topic">
-        <div class="topic-heading">
-          <div>
-            <h2>Оператори менше та більше</h2>
-          </div>
-        </div>
-
-        <div class="comparison-operators-list">
-          <div>
-            <strong>&lt;</strong>
-            <span>Менше</span>
-          </div>
-          <div>
-            <strong>&gt;</strong>
-            <span>Більше</span>
-          </div>
-        </div>
-
+      <!-- Блок 1: Менше та Більше -->
+      <section>
+        <h2>Оператори менше та більше</h2>
+        <p><code>&lt;</code> Менше</p>
+        <p><code>&gt;</code> Більше</p>
         <p>
-          Оператор <strong>&lt;</strong> перевіряє, чи є ліве значення меншим за
-          праве. Оператор <strong>&gt;</strong> перевіряє, чи є ліве значення
+          Оператор <code>&lt;</code> перевіряє, чи є ліве значення меншим за
+          праве. Оператор <code>&gt;</code> перевіряє, чи є ліве значення
           більшим за праве.
         </p>
 
@@ -58,39 +45,26 @@
           <pre><code>let x = 5;
 let y = 10;
 
-let isLess = x &lt; y;
+let isLess = x < y;
 
 console.log(isLess); // true</code></pre>
         </div>
 
         <div class="explanation">
           <strong>Що відбувається?</strong>
-          <p>Число 5 менше за 10, тому результат порівняння — true.</p>
+          <p>
+            Число 5 менше за 10, тому результат порівняння — <code>true</code>.
+          </p>
         </div>
 
-        <button onclick="showLessGreater()">Перевірити приклад</button>
-        <div class="comparison-result" id="less-greater-result"></div>
+        <button onclick="runLessMoreExample()">Перевірити приклад</button>
       </section>
 
-      <!-- Менше або дорівнює та більше або дорівнює -->
-      <section class="comparison-topic">
-        <div class="topic-heading">
-          <div>
-            <h2>Оператори менше або дорівнює та більше або дорівнює</h2>
-          </div>
-        </div>
-
-        <div class="comparison-operators-list">
-          <div>
-            <strong>&lt;=</strong>
-            <span>Менше або дорівнює</span>
-          </div>
-          <div>
-            <strong>&gt;=</strong>
-            <span>Більше або дорівнює</span>
-          </div>
-        </div>
-
+      <!-- Блок 2: Менше/Більше або дорівнює -->
+      <section>
+        <h2>Оператори менше або дорівнює та більше або дорівнює</h2>
+        <p><code>&lt;=</code> Менше або дорівнює</p>
+        <p><code>&gt;=</code> Більше або дорівнює</p>
         <p>
           Ці оператори перевіряють не тільки те, чи одне значення більше або
           менше за інше, а й чи дорівнюють вони одне одному.
@@ -101,7 +75,7 @@ console.log(isLess); // true</code></pre>
           <pre><code>let x = 10;
 let y = 10;
 
-let isLessOrEqual = x &lt;= y;
+let isLessOrEqual = x <= y;
 
 console.log(isLessOrEqual); // true</code></pre>
         </div>
@@ -109,31 +83,54 @@ console.log(isLessOrEqual); // true</code></pre>
         <div class="explanation">
           <strong>Що відбувається?</strong>
           <p>
-            Значення x та y однакові — 10. Оператор &lt;= враховує рівність,
-            тому результат — true.
+            Значення x та y однакові — 10. Оператор <code>&lt;=</code> враховує
+            рівність, тому результат — <code>true</code>.
           </p>
         </div>
 
-        <button onclick="showLessOrEqual()">Перевірити приклад</button>
-        <div class="comparison-result" id="less-equal-result"></div>
+        <button onclick="runLessOrEqualExample()">Перевірити приклад</button>
       </section>
 
-      <!-- Оператор in -->
-      <section class="comparison-topic">
-        <div class="topic-heading">
-          <div>
-            <h2>Оператор in</h2>
-          </div>
-        </div>
-
+      <!-- Блок 3: СТРОГА РІВНІСТЬ (Додано у твій конспект!) -->
+      <section>
+        <h2>Оператор строгої рівності</h2>
+        <p><code>===</code> Строго дорівнює</p>
         <p>
-          Оператор <strong>in</strong> використовується для перевірки, чи існує
-          в об'єкті певна властивість.
+          Цей оператор перевіряє, чи є два значення абсолютно однаковими. На
+          відміну від звичайного порівняння (<code>==</code>), він порівнює не
+          тільки самі значення, а й їхні <strong>типи даних</strong> [INDEX].
         </p>
 
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let x = 5;
+let y = "5";
+
+let isStrictlyEqual = x === y;
+
+console.log(isStrictlyEqual); // false</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Значення x — це чисте число 5, а y — це текстовий рядок "5".
+            Оскільки типи даних різні, оператор <code>===</code> повертає
+            <code>false</code> [INDEX]. Якщо порівняти два однакових числа
+            (<code>5 === 5</code>), результат буде <code>true</code>.
+          </p>
+        </div>
+
+        <button onclick="runStrictEqualExample()">Перевірити приклад</button>
+      </section>
+
+      <!-- Блок 4: Оператор in -->
+      <section>
+        <h2>Оператор "in"</h2>
         <p>
-          Він повертає <strong>true</strong>, якщо властивість існує, і
-          <strong>false</strong>, якщо її немає.
+          Оператор <code>in</code> використовується для перевірки, чи існує в
+          об'єкті певна властивість [INDEX]. Він повертає <code>true</code>,
+          якщо властивість існує, і <code>false</code>, якщо її немає.
         </p>
 
         <div class="code-example">
@@ -153,85 +150,84 @@ console.log(hasAddress); // false</code></pre>
         <div class="explanation">
           <strong>Що відбувається?</strong>
           <p>
-            В об'єкті person є властивість name, тому результат true.
-            Властивості address немає, тому результат false.
+            В об'єкті person є властивість name, тому результат
+            <code>true</code> [INDEX]. Властивості address немає, тому результат
+            <code>false</code>.
           </p>
         </div>
 
-        <button onclick="showInOperator()">Перевірити приклад</button>
-        <div class="comparison-result" id="in-result"></div>
+        <button onclick="runInExample()">Перевірити приклад</button>
       </section>
 
-      <!-- Підсумок -->
-      <section class="comparison-summary">
+      <!-- Шпаргалка -->
+      <section>
         <h2>Запам'ятай</h2>
-
-        <div class="summary-list">
-          <p><strong>&lt;</strong> — менше.</p>
-          <p><strong>&gt;</strong> — більше.</p>
-          <p><strong>&lt;=</strong> — менше або дорівнює.</p>
-          <p><strong>&gt;=</strong> — більше або дорівнює.</p>
-          <p>
-            <strong>in</strong> — перевіряє наявність властивості в об'єкті.
-          </p>
+        <div class="explanation">
+          <ul>
+            <li><code>&lt;</code> — менше.</li>
+            <li><code>&gt;</code> — більше.</li>
+            <li><code>&lt;=</code> — менше або дорівнює.</li>
+            <li><code>&gt;=</code> — більше або дорівнює.</li>
+            <li>
+              <code>===</code> — строго дорівнює (перевіряє значення і тип
+              даних) [INDEX].
+            </li>
+            <li>
+              <code>in</code> — перевіряє наявність властивості в об'єкті
+              [INDEX].
+            </li>
+          </ul>
         </div>
       </section>
     </main>
 
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT ДЛЯ КНОПОК ПЕРЕВІРКИ
+         ========================================================================== -->
     <script>
-      // 1. Оператори менше та більше
-      function showLessGreater() {
+      // 1. Тест менше/більше
+      function runLessMoreExample() {
         let x = 5;
         let y = 10;
-
         let isLess = x < y;
-        let isGreater = x > y;
-
-        document.getElementById("less-greater-result").textContent =
-          "x = " +
-          x +
-          "\ny = " +
-          y +
-          "\nx < y: " +
-          isLess +
-          "\nx > y: " +
-          isGreater;
+        alert(`Перевірка: ${x} < ${y}\nРезультат порівняння: ${isLess}`);
       }
 
-      // 2. Оператори менше або дорівнює та більше або дорівнює
-      function showLessOrEqual() {
+      // 2. Тест менше/більше або дорівнює
+      function runLessOrEqualExample() {
         let x = 10;
         let y = 10;
-
         let isLessOrEqual = x <= y;
-        let isGreaterOrEqual = x >= y;
-
-        document.getElementById("less-equal-result").textContent =
-          "x = " +
-          x +
-          "\ny = " +
-          y +
-          "\nx <= y: " +
-          isLessOrEqual +
-          "\nx >= y: " +
-          isGreaterOrEqual;
+        alert(
+          `Перевірка: ${x} <= ${y}\nРезультат порівняння: ${isLessOrEqual}`,
+        );
       }
 
-      // 3. Оператор in
-      function showInOperator() {
+      // 3. Тест строгої рівності
+      function runStrictEqualExample() {
+        let x = 5;
+        let y = "5";
+        let isStrictlyEqual = x === y;
+        alert(
+          `Перевірка строгої рівності чисел та рядків:\n${x} === "${y}"\nРезультат: ${isStrictlyEqual}`,
+        );
+      }
+
+      // 4. Тест оператора in
+      function runInExample() {
         let person = {
           name: "John",
           age: 30,
         };
-
         let hasName = "name" in person;
         let hasAddress = "address" in person;
-
-        document.getElementById("in-result").textContent =
-          '"name" in person: ' +
-          hasName +
-          '\n"address" in person: ' +
-          hasAddress;
+        alert(
+          `Оператор 'in' для об'єкта person:\n"name" in person ➡️ ${hasName}\n"address" in person ➡️ ${hasAddress}`,
+        );
       }
     </script>
   </body>
