@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модальне вікно confirm() — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Функція confirm() в JavaScript</h1>
+      <p>Отримання логічного підтвердження від користувача сайту</p>
+      <a href="../interaction.html">← Назад до усіх інструментів</a>
+    </header>
+
+    <main>
+      <!-- Що таке confirm -->
+      <section>
+        <h2>Синтаксис функції</h2>
+        <p>
+          Функція <strong>confirm()</strong> використовується для того, щоб
+          задати відвідувачу сайту запитання, яке потребує однозначної
+          відповіді: згоди чи відмови.
+        </p>
+
+        <pre><code>confirm(question);</code></pre>
+
+        <ul>
+          <li>
+            <strong>question</strong> — текст запитання, яке відображається у
+            модальному вікні.
+          </li>
+        </ul>
+        <p>
+          Функція показує вікно з цим запитанням та двома кнопками:
+          <strong>ОК</strong> та <strong>Скасувати (Cancel)</strong>.
+        </p>
+      </section>
+
+      <!-- Що повертає метод -->
+      <section>
+        <h2>Логічний результат роботи</h2>
+        <p>
+          На відміну від <code>prompt()</code>, який повертає текст, функція
+          <code>confirm()</code> повертає виключно
+          <strong>булеве (логічне) значення</strong>:
+        </p>
+        <ul>
+          <li>
+            <strong>true (істина)</strong> — якщо користувач натиснув кнопку
+            <strong>ОК</strong>.
+          </li>
+          <li>
+            <strong>false (хибність)</strong> — якщо користувач натиснув кнопку
+            <strong>Скасувати</strong> або закрив вікно клавішею Esc.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Інтерактивний приклад -->
+      <section>
+        <h2>Практичний приклад роботи коду</h2>
+        <p>
+          Натисніть кнопку, щоб запустити перевірку статусу та побачити
+          результат на екрані:
+        </p>
+
+        <pre><code>let isBoss = confirm("Ви бос?");
+
+alert(isBoss); // виведе true, якщо натиснуто ОК, інакше — false</code></pre>
+
+        <button onclick="runConfirmExample()">Запустити confirm()</button>
+        <div
+          class="unary-result"
+          id="confirm-result"
+          style="margin-top: 20px; font-weight: bold"
+        ></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section>
+        <h2>Запам'ятай</h2>
+        <p>
+          <strong>confirm()</strong> — ідеальний інструмент для підтвердження
+          важливих або небезпечних дій на сайті (наприклад:
+          <em>"Ви дійсно хочете видалити цей файл?"</em>).
+        </p>
+        <p>
+          <strong>Булевий тип даних</strong> — результат роботи цієї функції
+          завжди є або <code>true</code>, або <code>false</code>, що дозволяє
+          легко використовувати її в умовах <code>if / else</code>.
+        </p>
+        <p>
+          <strong>Модальність</strong> — вікно повністю блокує сторінку, поки
+          користувач не обере один із варіантів.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <script>
+      function runConfirmExample() {
+        // Викликаємо вікно confirm
+        let isBoss = confirm("Ви бос?");
+        let resultBlock = document.getElementById("confirm-result");
+
+        // Виводимо логічний результат на екран за допомогою шаблонного рядка
+        resultBlock.textContent = `Результат функції confirm(): ${isBoss}`;
+      }
+    </script>
+  </body>
+</html>

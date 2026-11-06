@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модальне вікно alert() — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Функція alert() в JavaScript</h1>
+      <p>Взаємодія з користувачем за допомогою модальних вікон</p>
+      <a href="../interaction.html">← Назад до усіх інструментів</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке функція alert()?</h2>
+        <p>
+          Функція <strong>alert()</strong> — це вбудований інструмент браузера,
+          який показує користувачу невелике вікно з повідомленням і призупиняє
+          виконання коду, доки користувач не натисне кнопку
+          <strong>"ОК"</strong>.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад використання</div>
+          <pre><code>alert("Це приклад повідомлення з функцією alert.");</code></pre>
+        </div>
+      </section>
+
+      <!-- Що таке модальне вікно -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>Що означає слово "модальне"?</h2>
+        </div>
+        <p>
+          Мінівікно, яке створює функція `alert()`, офіційно називається
+          **модальним вікном**.
+        </p>
+        <div class="explanation">
+          <strong>Особливість модальності:</strong>
+          <p>
+            Це означає, що відвідувач сайту повністю блокується на сторінці. Він
+            не зможе гортати сайт, виділяти текст, натискати інші кнопки або
+            відкривати меню, доки не завершить взаємодію з цим вікном — тобто
+            поки не натисне кнопку "ОК".
+          </p>
+        </div>
+      </section>
+
+      <!-- Інтерактивна лабораторія вікон -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>Динамічний запуск alert()</h2>
+        </div>
+        <p>
+          Введіть текст, який хочете передати всередину функції як змінну, та
+          протестуйте модальність вікна:
+        </p>
+
+        <div class="input-group">
+          <label for="alert-text"
+            >Повідомлення для відображення (змінна msg):</label
+          >
+          <input
+            type="text"
+            id="alert-text"
+            value="Привіт! Це моє власне модальне вікно."
+          />
+        </div>
+
+        <button onclick="runDynamicAlert()">Викликати alert(msg)</button>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <div class="summary-list">
+          <p>
+            <strong>alert()</strong> — зупиняє роботу скрипту та виводить
+            інформаційне вікно.
+          </p>
+          <p>
+            <strong>Модальність</strong> — повністю блокує інтерфейс сторінки до
+            моменту натискання "ОК".
+          </p>
+          <p>
+            <strong>Рядки та змінні</strong> — у функцію можна передавати як
+            чистий текст у лапках, так і змінні, що містять цей текст.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function runDynamicAlert() {
+        // Отримуємо значення з текстового поля у змінну msg
+        let msg = document.getElementById("alert-text").value;
+
+        // Передаємо змінну у функцію alert
+        alert(msg);
+      }
+    </script>
+  </body>
+</html>

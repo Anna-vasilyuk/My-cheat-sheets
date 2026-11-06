@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Правила та порядок виконання операторів — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Правила та порядок виконання операторів</h1>
+      <p>Пріоритет та асоціативність операторів у JavaScript</p>
+      <a href="operators.html">← Назад до операторів</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке пріоритет операторів?</h2>
+        <p>
+          У JavaScript різні оператори мають різний пріоритет. Це означає, що
+          деякі операції виконуються раніше за інші, навіть якщо вони записані
+          пізніше у виразі.
+        </p>
+        <p>
+          Якщо оператори мають однаковий пріоритет, порядок їх виконання
+          визначається асоціативністю.
+        </p>
+      </section>
+
+      <!-- Пріоритет операторів -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Пріоритет операторів</h2>
+          </div>
+        </div>
+        <p>
+          Оператори з більшим пріоритетом виконуються першими. Наприклад,
+          множення має вищий пріоритет, ніж додавання.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 10;
+let b = 2;
+let c = 3;
+
+let result = a + b * c;
+
+console.log(result); // 16</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Спочатку виконується множення 2 * 3 = 6, оскільки множення має вищий
+            пріоритет. Потім виконується додавання 10 + 6 = 16.
+          </p>
+        </div>
+        <button onclick="showPriority()">Перевірити приклад</button>
+        <div class="assignment-result" id="priority-result"></div>
+      </section>
+
+      <!-- Дужки -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Порядок виконання операцій у дужках</h2>
+          </div>
+        </div>
+        <p>
+          Вирази, які знаходяться у круглих дужках <strong>()</strong>,
+          виконуються першими. Дужки дозволяють змінити стандартний порядок
+          виконання операцій.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let result = (10 + 2) * 3;
+
+console.log(result); // 36</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Спочатку виконується дія у дужках: 10 + 2 = 12. Потім результат
+            множиться на 3. Отримуємо 12 * 3 = 36.
+          </p>
+        </div>
+        <button onclick="showParentheses()">Перевірити приклад</button>
+        <div class="assignment-result" id="parentheses-result"></div>
+      </section>
+
+      <!-- Оператори різного пріоритету -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Пріоритет арифметичних операторів та порівняння</h2>
+          </div>
+        </div>
+        <p>
+          Арифметичні оператори мають вищий пріоритет, ніж оператори порівняння.
+          Тому спочатку виконується microcosmic математичне обчислення, а потім
+          порівняння отриманого результату.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let result = 5 + 10 > 8;
+
+console.log(result); // true</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Спочатку виконується додавання: 5 + 10 = 15. Потім JavaScript
+            порівнює 15 і 8. Оскільки 15 більше за 8, результатом буде true.
+          </p>
+        </div>
+        <button onclick="showComparison()">Перевірити приклад</button>
+        <div class="assignment-result" id="comparison-result"></div>
+      </section>
+
+      <!-- Асоціативність -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Асоціативність операторів</h2>
+          </div>
+        </div>
+        <p>
+          Якщо оператори мають однаковий пріоритет, порядок їх виконання
+          визначається асоціативністю. Наприклад, оператори додавання та
+          віднімання виконуються зліва направо.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let result = 20 - 5 + 2;
+
+console.log(result); // 17</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Оператори віднімання та додавання мають однаковий пріоритет і
+            виконуються зліва направо. Спочатку 20 - 5 = 15, потім 15 + 2 = 17.
+          </p>
+        </div>
+        <button onclick="showAssociativity()">Перевірити приклад</button>
+        <div class="assignment-result" id="associativity-result"></div>
+      </section>
+
+      <!-- Оператор присвоювання -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Низький пріоритет оператора присвоювання (=)</h2>
+          </div>
+        </div>
+        <p>
+          Оператор присвоювання <strong>=</strong> має низький пріоритет.
+          Спочатку JavaScript виконує обчислення у правій частині виразу, а
+          потім присвоює отриманий результат змінній.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 5 + 3 * 2;
+
+console.log(a); // 11</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Спочатку виконується множення 3 * 2 = 6. Потім додавання 5 + 6 = 11.
+            Після цього отримане значення 11 присвоюється змінній a.
+          </p>
+        </div>
+        <button onclick="showAssignmentPriority()">Перевірити приклад</button>
+        <div class="assignment-result" id="assignment-priority-result"></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <div class="summary-list">
+          <p>
+            <strong>Пріоритет</strong> — визначає, які оператори виконуються
+            першими.
+          </p>
+          <p><strong>()</strong> — дії у дужках виконуються першими.</p>
+          <p>
+            <strong>Асоціативність</strong> — визначає порядок виконання
+            операторів з однаковим пріоритетом.
+          </p>
+          <p>
+            <strong>Арифметичні оператори</strong> — мають вищий пріоритет, ніж
+            оператори порівняння.
+          </p>
+          <p>
+            <strong>=</strong> — оператор присвоювання має низький пріоритет,
+            тому обчислення виконуються перед присвоюванням.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Скрипт тепер повністю закритий і виправлений -->
+    <script>
+      // 1. Пріоритет операторів
+      function showPriority() {
+        let a = 10;
+        let b = 2;
+        let c = 3;
+        let result = a + b * c;
+        document.getElementById("priority-result").textContent =
+          `10 + 2 * 3 = ${result}`;
+      }
+
+      // 2. Дужки
+      function showParentheses() {
+        let result = (10 + 2) * 3;
+        document.getElementById("parentheses-result").textContent =
+          `(10 + 2) * 3 = ${result}`;
+      }
+
+      // 3. Арифметичні оператори та порівняння
+      function showComparison() {
+        let result = 5 + 10 > 8;
+        document.getElementById("comparison-result").textContent =
+          `5 + 10 > 8 = ${result}`;
+      }
+
+      // 4. Асоціативність
+      function showAssociativity() {
+        let result = 20 - 5 + 2;
+        document.getElementById("associativity-result").textContent =
+          `20 - 5 + 2 = ${result}`;
+      }
+
+      // 5. Пріоритет присвоювання (тут був обрив коду, все відновлено)
+      function showAssignmentPriority() {
+        let a = 5 + 3 * 2;
+        document.getElementById("assignment-priority-result").textContent =
+          `5 + 3 * 2 = ${a}`;
+      }
+    </script>
+  </body>
+</html>

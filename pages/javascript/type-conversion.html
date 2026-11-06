@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перетворення типів — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Явне та неявне перетворення</h1>
+      <p>Як JavaScript змінює типи даних</p>
+      <a href="../javascript.html">← Назад до JavaScript</a>
+    </header>
+
+    <main class="conversion-page">
+      <!-- Вступ -->
+      <section class="conversion-intro">
+        <h2>Перетворення типів даних</h2>
+        <p>
+          У JavaScript типи даних можна перетворювати двома способами: явно та
+          неявно. У першому випадку програміст самостійно вказує, який тип
+          потрібно отримати, а в другому — JavaScript виконує перетворення
+          автоматично.
+        </p>
+      </section>
+
+      <!-- Явне перетворення -->
+      <section class="conversion-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Явне перетворення</h2>
+          </div>
+        </div>
+
+        <p>
+          <strong>Явне перетворення типів даних</strong>
+          (Explicit Type Conversion) відбувається тоді, коли програміст
+          самостійно змінює тип значення за допомогою спеціальних функцій.
+        </p>
+
+        <p>Найпоширеніші функції:</p>
+
+        <div class="conversion-functions">
+          <div>
+            <strong>Number()</strong>
+            <span>Перетворює значення на число.</span>
+          </div>
+
+          <div>
+            <strong>String()</strong>
+            <span>Перетворює значення на рядок.</span>
+          </div>
+
+          <div>
+            <strong>Boolean()</strong>
+            <span>Перетворює значення на логічний тип.</span>
+          </div>
+        </div>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let numStr = "42";
+
+let num = Number(numStr);
+
+console.log(num); // 42
+console.log(typeof num); // "number"
+
+let boolStr = "true";
+
+let bool = Boolean(boolStr);
+
+console.log(bool); // true
+console.log(typeof bool); // "boolean"</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Number() перетворює рядок "42" на число 42. Boolean() перетворює
+            непорожній рядок "true" на логічне значення true.
+          </p>
+        </div>
+
+        <button onclick="showExplicitConversion()">Перевірити приклад</button>
+
+        <div class="conversion-result" id="explicit-result"></div>
+      </section>
+
+      <!-- Неявне перетворення -->
+      <section class="conversion-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Неявне перетворення</h2>
+          </div>
+        </div>
+
+        <p>
+          <strong>Неявне перетворення типів даних</strong>
+          (Implicit Type Conversion) відбувається автоматично, коли JavaScript
+          самостійно змінює тип значення для виконання певної операції.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let num = 42;
+
+let str = "The answer is " + num;
+
+console.log(str);
+// "The answer is 42"
+
+console.log(typeof str); // "string"</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Коли число 42 додається до рядка, JavaScript автоматично перетворює
+            число на рядок і об'єднує обидва значення.
+          </p>
+        </div>
+
+        <button onclick="showImplicitConversion()">Перевірити приклад</button>
+
+        <div class="conversion-result" id="implicit-result"></div>
+      </section>
+
+      <!-- Порівняння -->
+      <section class="conversion-comparison">
+        <h2>У чому різниця?</h2>
+
+        <div class="comparison-grid">
+          <div class="comparison-card explicit-card">
+            <h3>Явне перетворення</h3>
+            <p>Програміст сам вказує, який тип потрібно отримати.</p>
+            <code>Number("42")</code>
+            <span>Перетворення виконується за командою.</span>
+          </div>
+
+          <div class="comparison-card implicit-card">
+            <h3>Неявне перетворення</h3>
+            <p>JavaScript самостійно перетворює тип даних.</p>
+            <code>"42" + 10</code>
+            <span>Перетворення відбувається автоматично.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="conversion-summary">
+        <h2>Запам'ятай</h2>
+
+        <div class="summary-list">
+          <p>
+            <strong>Явне перетворення</strong> — програміст самостійно змінює
+            тип даних.
+          </p>
+
+          <p>
+            <strong>Неявне перетворення</strong> — JavaScript автоматично змінює
+            тип даних.
+          </p>
+
+          <p><strong>Number()</strong> — перетворення на число.</p>
+
+          <p><strong>String()</strong> — перетворення на рядок.</p>
+
+          <p><strong>Boolean()</strong> — перетворення на boolean.</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      // 1. Явне перетворення типів
+      function showExplicitConversion() {
+        let numStr = "42";
+        let num = Number(numStr);
+
+        let boolStr = "true";
+        let bool = Boolean(boolStr);
+
+        document.getElementById("explicit-result").textContent =
+          'Number("42"): ' +
+          num +
+          "\nТип: " +
+          typeof num +
+          '\n\nBoolean("true"): ' +
+          bool +
+          "\nТип: " +
+          typeof bool;
+      }
+
+      // 2. Неявне перетворення типів
+      function showImplicitConversion() {
+        let num = 42;
+
+        let str = "The answer is " + num;
+
+        document.getElementById("implicit-result").textContent =
+          "Початкове число: " +
+          num +
+          "\nТип числа: " +
+          typeof num +
+          "\n\nРезультат: " +
+          str +
+          "\nТип результату: " +
+          typeof str;
+      }
+    </script>
+  </body>
+</html>

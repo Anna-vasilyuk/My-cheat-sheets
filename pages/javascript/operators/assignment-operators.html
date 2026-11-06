@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оператори присвоювання — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Оператори присвоювання</h1>
+      <p>Як присвоювати та оновлювати значення змінних</p>
+      <a href="operators.html">← Назад до операторів</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке оператори присвоювання?</h2>
+
+        <p>
+          Оператори присвоювання використовуються для присвоєння значення
+          змінній. Найпоширенішим оператором присвоювання є знак
+          <strong>=</strong>.
+        </p>
+      </section>
+
+      <!-- Звичайне присвоювання -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор присвоювання (=)</h2>
+          </div>
+        </div>
+
+        <p>
+          Оператор <strong>=</strong> присвоює змінній значення, яке знаходиться
+          праворуч від нього.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let x = 10;
+
+console.log(x); // 10</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Змінній x присвоюється значення 10. Тепер під час звернення до x ми
+            отримаємо 10.
+          </p>
+        </div>
+
+        <button onclick="showAssignment()">Перевірити приклад</button>
+        <div class="assignment-result" id="assignment-result"></div>
+      </section>
+
+      <!-- Скорочене присвоювання -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Скорочені оператори присвоювання</h2>
+          </div>
+        </div>
+
+        <p>
+          У JavaScript існують скорочені форми присвоювання. Вони дозволяють
+          виконувати математичну операцію та одночасно присвоювати змінній нове
+          значення.
+        </p>
+
+        <div class="assignment-operators">
+          <div>
+            <strong>+=</strong>
+            <p>Додає значення до змінної.</p>
+          </div>
+
+          <div>
+            <strong>-=</strong>
+            <p>Віднімає значення від змінної.</p>
+          </div>
+
+          <div>
+            <strong>*=</strong>
+            <p>Множить значення змінної.</p>
+          </div>
+
+          <div>
+            <strong>/=</strong>
+            <p>Ділить значення змінної.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Приклад += -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор +=</h2>
+          </div>
+        </div>
+
+        <p>
+          Оператор <strong>+=</strong> додає вказане значення до поточного
+          значення змінної та присвоює результат цій самій змінній.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let y = 5;
+
+y += 3;
+
+console.log(y); // 8</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Запис y += 3 означає те саме, що y = y + 3. До початкового значення
+            5 додається 3, тому нове значення y дорівнює 8.
+          </p>
+        </div>
+
+        <button onclick="showAdditionAssignment()">Перевірити приклад</button>
+        <div class="assignment-result" id="addition-result"></div>
+      </section>
+
+      <!-- Інші скорочені оператори -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Інші скорочені оператори</h2>
+          </div>
+        </div>
+
+        <div class="code-example">
+          <div class="code-title">Приклади коду</div>
+          <pre><code>let a = 10;
+a -= 3;
+
+console.log(a); // 7
+
+
+let b = 5;
+b *= 2;
+
+console.log(b); // 10
+
+
+let c = 20;
+c /= 4;
+
+console.log(c); // 5</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Пояснення:</strong>
+          <p>
+            -= віднімає число від змінної. *= множить значення змінної. /=
+            ділить значення змінної.
+          </p>
+        </div>
+
+        <button onclick="showOtherAssignments()">Перевірити приклад</button>
+        <div class="assignment-result" id="other-assignment-result"></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+
+        <div class="summary-list">
+          <p><strong>=</strong> — присвоює значення змінній.</p>
+          <p><strong>+=</strong> — додає та присвоює.</p>
+          <p><strong>-=</strong> — віднімає та присвоює.</p>
+          <p><strong>*=</strong> — множить та присвоює.</p>
+          <p><strong>/=</strong> — ділить та присвоює.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // 1. Звичайне присвоювання (=)
+      function showAssignment() {
+        let x = 10;
+
+        document.getElementById("assignment-result").textContent =
+          "Значення змінної x: " + x;
+      }
+
+      // 2. Оператор +=
+      function showAdditionAssignment() {
+        let y = 5;
+
+        let oldValue = y;
+        y += 3;
+
+        document.getElementById("addition-result").textContent =
+          "Початкове значення: " +
+          oldValue +
+          "\nВиконана операція: y += 3" +
+          "\nНове значення: " +
+          y;
+      }
+
+      // 3. Інші скорочені оператори
+      function showOtherAssignments() {
+        let a = 10;
+        a -= 3;
+
+        let b = 5;
+        b *= 2;
+
+        let c = 20;
+        c /= 4;
+
+        document.getElementById("other-assignment-result").textContent =
+          "10 -= 3: " + a + "\n5 *= 2: " + b + "\n20 /= 4: " + c;
+      }
+    </script>
+  </body>
+</html>

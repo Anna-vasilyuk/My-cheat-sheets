@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Копіювання підрядка</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Копіювання підрядка</h1>
+      <p>Як отримати частину рядка за допомогою методу substring().</p>
+      <a href="../strings-base.html">← Назад до усіх рядків</a>
+    </header>
+
+    <main class="assignment-page">
+      <section class="assignment-intro">
+        <h2>Метод substring()</h2>
+        <p>
+          Копіювання підрядка 34 Метод substring(start [, end]) повертає
+          підрядок з позиції start до не включаючи end 35 8 36 10 Let str =
+          "stringify"; str. substring(0,1); |/ "s", str. substring(2,6); //
+          "ring".! Метод <code>substring()</code> повертає частину рядка,
+          починаючи з указаного індексу. Початкова позиція включається, а
+          кінцева — не включається.
+        </p>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">1. Синтаксис методу substring()</h2>
+
+        <div class="code-example">
+          <p class="code-title">Синтаксис:</p>
+          <pre><code>str.substring(start, end);</code></pre>
+        </div>
+
+        <p class="explanation">
+          <code>start</code> — індекс, з якого починається підрядок.
+          <br />
+          <code>end</code> — індекс, на якому підрядок закінчується (цей символ
+          уже не включається).
+        </p>
+        <p class="explanation">
+          Якщо параметр <code>end</code> не вказати, метод поверне всі символи
+          від <code>start</code> до кінця рядка.
+        </p>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">2. Приклади використання</h2>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = "stringify";
+
+console.log(str.substring(0, 1)); // "s"
+console.log(str.substring(2, 6)); // "ring"</code></pre>
+        </div>
+
+        <p class="explanation">
+          У першому прикладі отримуємо символ з індексом 0. У другому — символи
+          з індексами 2, 3, 4 та 5. Символ з індексом 6 не включається.
+        </p>
+
+        <button onclick="showSubstring()">Перевірити приклад</button>
+        <div id="substring-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">3. Отримання підрядка до кінця рядка</h2>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = "stringify";
+
+console.log(str.substring(2)); // "ringify"</code></pre>
+        </div>
+
+        <p class="explanation">
+          Якщо вказати лише початковий індекс, метод поверне всі символи від
+          цієї позиції до кінця рядка.
+        </p>
+
+        <button onclick="showSubstringEnd()">Перевірити приклад</button>
+        <div id="substring-end-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <ul class="summary-list">
+          <li><code>substring(start, end)</code> повертає частину рядка.</li>
+          <li><code>start</code> — початковий індекс, він включається.</li>
+          <li><code>end</code> — кінцевий індекс, він не включається.</li>
+          <li>
+            Якщо <code>end</code> не вказано, підрядок береться до кінця рядка.
+          </li>
+          <li>Метод <code>substring()</code> не змінює початковий рядок.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      function showSubstring() {
+        let str = "stringify";
+
+        document.getElementById("substring-result").innerHTML =
+          "substring(0, 1): " +
+          str.substring(0, 1) +
+          "<br>substring(2, 6): " +
+          str.substring(2, 6);
+      }
+
+      function showSubstringEnd() {
+        let str = "stringify";
+
+        document.getElementById("substring-end-result").textContent =
+          "substring(2): " + str.substring(2);
+      }
+    </script>
+  </body>
+</html>

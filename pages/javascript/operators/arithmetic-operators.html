@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Арифметичні оператори — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Арифметичні оператори</h1>
+      <p>Математичні операції та залишок від ділення в JavaScript</p>
+      <a href="operators.html">← Назад до операторів</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке арифметичні оператори?</h2>
+
+        <p>
+          Арифметичні оператори використовуються для виконання математичних
+          обчислень із числами. За їх допомогою можна додавати, віднімати,
+          множити, ділити числа та знаходити залишок від ділення.
+        </p>
+      </section>
+
+      <!-- Основні арифметичні оператори -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Основні арифметичні оператори</h2>
+          </div>
+        </div>
+
+        <p>JavaScript підтримує п'ять основних арифметичних операторів:</p>
+
+        <div class="assignment-operators">
+          <div>
+            <strong>+</strong>
+            <p>Додавання двох чисел.</p>
+          </div>
+
+          <div>
+            <strong>-</strong>
+            <p>Віднімання одного числа від іншого.</p>
+          </div>
+
+          <div>
+            <strong>*</strong>
+            <p>Множення чисел.</p>
+          </div>
+
+          <div>
+            <strong>/</strong>
+            <p>Ділення одного числа на інше.</p>
+          </div>
+
+          <div>
+            <strong>%</strong>
+            <p>Знаходження залишку від ділення.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Додавання -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор додавання (+)</h2>
+          </div>
+        </div>
+
+        <p>
+          Оператор <strong>+</strong> додає два числа та повертає їхню суму.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 10;
+let b = 5;
+
+let sum = a + b;
+
+console.log(sum); // 15</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Створюються дві змінні a і b зі значеннями 10 та 5. За допомогою
+            оператора + їхні значення додаються. Результат 15 записується у
+            змінну sum.
+          </p>
+        </div>
+
+        <button onclick="showAddition()">Перевірити приклад</button>
+        <div class="assignment-result" id="addition-result"></div>
+      </section>
+
+      <!-- Віднімання -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор віднімання (-)</h2>
+          </div>
+        </div>
+
+        <p>Оператор <strong>-</strong> віднімає одне число від іншого.</p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 10;
+let b = 5;
+
+let difference = a - b;
+
+console.log(difference); // 5</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Від числа 10 віднімається число 5. Отриманий результат 5 записується
+            у змінну difference.
+          </p>
+        </div>
+
+        <button onclick="showSubtraction()">Перевірити приклад</button>
+        <div class="assignment-result" id="subtraction-result"></div>
+      </section>
+
+      <!-- Множення -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор множення (*)</h2>
+          </div>
+        </div>
+
+        <p>
+          Оператор <strong>*</strong> використовується для множення двох чисел.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 10;
+let b = 5;
+
+let product = a * b;
+
+console.log(product); // 50</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Число 10 множиться на 5. Результат множення дорівнює 50 та
+            записується у змінну product.
+          </p>
+        </div>
+
+        <button onclick="showMultiplication()">Перевірити приклад</button>
+        <div class="assignment-result" id="multiplication-result"></div>
+      </section>
+
+      <!-- Ділення -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор ділення (/)</h2>
+          </div>
+        </div>
+
+        <p>Оператор <strong>/</strong> ділить одне число на інше.</p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let a = 10;
+let b = 5;
+
+let quotient = a / b;
+
+console.log(quotient); // 2</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Число 10 ділиться на 5. Результат ділення дорівнює 2 та записується
+            у змінну quotient.
+          </p>
+        </div>
+
+        <button onclick="showDivision()">Перевірити приклад</button>
+        <div class="assignment-result" id="division-result"></div>
+      </section>
+
+      <!-- Залишок від ділення -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор залишку від ділення (%)</h2>
+          </div>
+        </div>
+
+        <p>
+          Оператор <strong>%</strong> повертає залишок, який залишається після
+          ділення одного числа на інше.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let dividend = 10;
+let divisor = 3;
+
+let remainder = dividend % divisor;
+
+console.log(remainder); // 1</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Число 10 ділиться на 3. Число 3 поміщається у 10 три рази, а залишок
+            дорівнює 1. Саме це значення записується у змінну remainder.
+          </p>
+        </div>
+
+        <button onclick="showRemainder()">Перевірити приклад</button>
+        <div class="assignment-result" id="remainder-result"></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+
+        <div class="summary-list">
+          <p><strong>+</strong> — додає числа.</p>
+          <p><strong>-</strong> — віднімає числа.</p>
+          <p><strong>*</strong> — множить числа.</p>
+          <p><strong>/</strong> — ділить числа.</p>
+          <p><strong>%</strong> — повертає залишок від ділення.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // 1. Додавання
+      function showAddition() {
+        let a = 10;
+        let b = 5;
+        let sum = a + b;
+
+        document.getElementById("addition-result").textContent =
+          "10 + 5 = " + sum;
+      }
+
+      // 2. Віднімання
+      function showSubtraction() {
+        let a = 10;
+        let b = 5;
+        let difference = a - b;
+
+        document.getElementById("subtraction-result").textContent =
+          "10 - 5 = " + difference;
+      }
+
+      // 3. Множення
+      function showMultiplication() {
+        let a = 10;
+        let b = 5;
+        let product = a * b;
+
+        document.getElementById("multiplication-result").textContent =
+          "10 * 5 = " + product;
+      }
+
+      // 4. Ділення
+      function showDivision() {
+        let a = 10;
+        let b = 5;
+        let quotient = a / b;
+
+        document.getElementById("division-result").textContent =
+          "10 / 5 = " + quotient;
+      }
+
+      // 5. Залишок від ділення
+      function showRemainder() {
+        let dividend = 10;
+        let divisor = 3;
+        let remainder = dividend % divisor;
+
+        document.getElementById("remainder-result").textContent =
+          "10 % 3 = " + remainder;
+      }
+    </script>
+  </body>
+</html>

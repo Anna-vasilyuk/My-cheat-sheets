@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заміна підрядка — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Заміна підрядка в JavaScript</h1>
+      <p>Вивчення методу рядків .replace()</p>
+      <a href="../strings-base.html">← Назад до усіх рядків</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Як замінити частину тексту?</h2>
+        <p>
+          Для пошуку та заміни певного слова або фрагмента тексту у JavaScript
+          використовується вбудований метод <strong>.replace()</strong>. Він
+          приймає два значення: що саме шукати та на що його замінити.
+        </p>
+      </section>
+
+      <!-- Приклад коду -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>Використання методу .replace()</h2>
+        </div>
+        <p>
+          Метод шукає вказане слово й створює на його основі новий текст.
+          Нагадуємо, що рядки є незмінними, тому початкова змінна завжди
+          залишається у своєму оригінальному стані.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let str = "Please visit Microsoft!";
+
+// Створюємо новий рядок із заміною
+let n = str.replace("Microsoft", "W3Schools");
+
+console.log(n);   // "Please visit W3Schools!"
+console.log(str); // "Please visit Microsoft!" (оригінал не змінився)</code></pre>
+        </div>
+
+        <button onclick="checkReplace()">Перевірити приклад</button>
+        <div class="assignment-result" id="replace-result"></div>
+      </section>
+
+      <!-- Важливе зауваження -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>🚨 Що варто враховувати?</h2>
+        </div>
+        <div class="explanation">
+          <strong>1. Регістрозалежність:</strong>
+          <p>
+            Метод <code>.replace()</code> чутливий до великих і маленьких літер.
+            Якщо ви спробуєте виконати
+            <code>str.replace("microsoft", "W3Schools")</code> (з маленької
+            літери "m"), JavaScript просто не знайде це слово й поверне текст
+            без змін.
+          </p>
+
+          <strong>2. Заміна лише першого збігу:</strong>
+          <p>
+            Якщо слово зустрічається в тексті кілька разів, метод
+            <code>.replace()</code> замінить **тільки перше** знайдене слово.
+            Для заміни всіх копій у сучасному JavaScript використовують метод
+            <code>.replaceAll()</code> або регулярні вирази.
+          </p>
+        </div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <div class="summary-list">
+          <p>
+            <strong>str.replace(що_шукаємо, на_що_міняємо)</strong> — метод для
+            створення копії рядка з оновленим фрагментом.
+          </p>
+          <p>
+            <strong>Оригінал не змінюється</strong> — робота методу ще раз
+            доводить правило незмінності типу даних String.
+          </p>
+          <p>
+            <strong>Регістр має значення</strong> — слова "Microsoft" та
+            "microsoft" для цього методу є абсолютно різними.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function checkReplace() {
+        let str = "Please visit Microsoft!";
+        let n = str.replace("Microsoft", "W3Schools");
+
+        document.getElementById("replace-result").textContent =
+          `Оригінальний рядок: "${str}"\nРезультат роботи .replace(): "${n}"`;
+      }
+    </script>
+  </body>
+</html>

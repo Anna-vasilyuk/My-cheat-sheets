@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Унарні оператори JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Унарні оператори JavaScript</h1>
+
+      <p>Оператори, які працюють з одним операндом</p>
+
+      <a href="operators.html">← Назад до операторів</a>
+    </header>
+
+    <main class="unary-page">
+      <!-- Вступ -->
+      <section class="unary-intro">
+        <h2>Що таке унарні оператори?</h2>
+        <p>
+          Це оператори, які працюють з одним операндом, тобто змінною або
+          значенням.
+        </p>
+      </section>
+
+      <!-- Унарний плюс -->
+      <section class="unary-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Унарний плюс</h2>
+          </div>
+        </div>
+
+        <p>Унарний плюс перетворює операнд на число, якщо це можливо.</p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let num = "42";
+
+let convertedNum = +num;
+
+console.log(convertedNum); // 42
+console.log(typeof convertedNum); // "number"</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Змінна <code>num</code> містить рядок "42". За допомогою унарного
+            плюса значення перетворюється на число 42.
+          </p>
+        </div>
+
+        <button onclick="showUnaryPlus()">Перевірити приклад</button>
+        <div class="unary-result" id="unary-plus-result"></div>
+      </section>
+
+      <!-- Унарний мінус -->
+      <section class="unary-topic">
+        <div class="topic-heading">
+          <div>
+            <span class="topic-number">02 / UNARY OPERATOR</span>
+            <h2>Унарний мінус</h2>
+          </div>
+        </div>
+
+        <p>
+          Унарний мінус перетворює операнд на число та змінює його знак на
+          протилежний.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let x = 10;
+
+let y = -x;
+
+console.log(x); // 10
+console.log(y); // -10</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Значення змінної <code>x</code> залишається 10, а у змінній
+            <code>y</code> записується число -10.
+          </p>
+        </div>
+
+        <button onclick="showUnaryMinus()">Перевірити приклад</button>
+        <div class="unary-result" id="unary-minus-result"></div>
+      </section>
+
+      <!-- Логічне заперечення -->
+      <section class="unary-topic">
+        <div class="topic-heading">
+          <div>
+            <span class="topic-number">03 / UNARY OPERATOR</span>
+            <h2>Логічне заперечення</h2>
+          </div>
+        </div>
+
+        <p>
+          <strong>Логічне заперечення (!)</strong> інвертує логічне значення
+          операнда: true перетворює на false, а false — на true.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let isTrue = true;
+
+let isFalse = !isTrue;
+
+console.log(isFalse); // false</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Змінна isTrue містить true. Оператор ! змінює це значення на
+            протилежне, тому isFalse отримує false.
+          </p>
+        </div>
+
+        <button onclick="showLogicalNot()">Перевірити приклад</button>
+        <div class="unary-result" id="logical-not-result"></div>
+
+        <div class="code-example">
+          <div class="code-title">Ще декілька прикладів</div>
+          <pre><code>console.log(!0);       // true
+console.log(!"Hello"); // false
+console.log(!null);    // true</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Зверни увагу!</strong>
+          <p>
+            Оператор ! спочатку перетворює значення на boolean, а потім інвертує
+            його.
+          </p>
+        </div>
+      </section>
+
+      <!-- Інкремент і декремент -->
+      <section class="unary-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Інкремент та декремент</h2>
+          </div>
+        </div>
+
+        <div class="operator-description">
+          <div>
+            <h3>Інкремент ++</h3>
+            <p>Збільшує значення змінної на одиницю.</p>
+          </div>
+
+          <div>
+            <h3>Декремент --</h3>
+            <p>Зменшує значення змінної на одиницю.</p>
+          </div>
+        </div>
+
+        <p>
+          Інкремент та декремент мають дві форми використання: префіксну та
+          постфіксну.
+        </p>
+      </section>
+
+      <!-- Префіксна і постфіксна форми -->
+      <section class="forms-section">
+        <div class="forms-heading">
+          <h2>Дві форми використання</h2>
+          <p>
+            Розташування оператора впливає на те, яке значення буде використане
+            у виразі.
+          </p>
+        </div>
+
+        <div class="forms-grid">
+          <!-- Префікс -->
+          <article class="form-card prefix-card">
+            <h3>Префіксна форма</h3>
+            <p>
+              Оператор розташований перед змінною. Спочатку змінюється значення,
+              а потім використовується результат.
+            </p>
+
+            <div class="code-example">
+              <pre><code>let x = 10;
+
+let y = --x;
+
+console.log(x); // 9
+console.log(y); // 9</code></pre>
+            </div>
+
+            <button onclick="showPrefix()">Перевірити приклад</button>
+            <div class="unary-result" id="prefix-result"></div>
+          </article>
+
+          <!-- Постфікс -->
+          <article class="form-card postfix-card">
+            <h3>Постфіксна форма</h3>
+            <p>
+              Оператор розташований після змінної. Спочатку використовується
+              поточне значення, а потім змінна змінюється.
+            </p>
+
+            <div class="code-example">
+              <pre><code>let x = 10;
+
+let y = x--;
+
+console.log(x); // 9
+console.log(y); // 10</code></pre>
+            </div>
+
+            <button onclick="showPostfix()">Перевірити приклад</button>
+            <div class="unary-result" id="postfix-result"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="unary-summary">
+        <h2>Запам'ятай</h2>
+
+        <div class="summary-list">
+          <p><strong>+</strong> — перетворює значення на число.</p>
+          <p><strong>-</strong> — змінює знак числа.</p>
+          <p><strong>++</strong> — збільшує значення на 1.</p>
+          <p><strong>--</strong> — зменшує значення на 1.</p>
+          <p><strong>Префікс</strong> — спочатку зміна, потім використання.</p>
+          <p><strong>Постфікс</strong> — спочатку використання, потім зміна.</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      // 1. Унарний плюс (+)
+      function showUnaryPlus() {
+        let num = "42";
+        let convertedNum = +num;
+
+        document.getElementById("unary-plus-result").textContent =
+          "Початкове значення: " +
+          num +
+          "\nПочатковий тип: " +
+          typeof num +
+          "\nПісля перетворення: " +
+          convertedNum +
+          "\nНовий тип: " +
+          typeof convertedNum;
+      }
+
+      // 2. Унарний мінус (-)
+      function showUnaryMinus() {
+        let x = 10;
+        let y = -x;
+
+        document.getElementById("unary-minus-result").textContent =
+          "x = " + x + "\ny = -x = " + y;
+      }
+
+      // 3. Префіксна форма (--x)
+      function showPrefix() {
+        let x = 10;
+        let y = --x;
+
+        document.getElementById("prefix-result").textContent =
+          "Початкове значення x: 10" +
+          "\nПісля виконання --x:" +
+          "\nx = " +
+          x +
+          "\ny = " +
+          y;
+      }
+
+      // 4. Постфіксна форма (x--)
+      function showPostfix() {
+        let x = 10;
+        let y = x--;
+
+        document.getElementById("postfix-result").textContent =
+          "Початкове значення x: 10" +
+          "\nПісля виконання x--:" +
+          "\nx = " +
+          x +
+          "\ny = " +
+          y;
+      }
+      // Логічне заперечення (!)
+      function showLogicalNot() {
+        let isTrue = true;
+        let isFalse = !isTrue;
+
+        document.getElementById("logical-not-result").textContent =
+          "Початкове значення: " +
+          isTrue +
+          "\nПісля !isTrue: " +
+          isFalse +
+          "\nТип результату: " +
+          typeof isFalse;
+      }
+    </script>
+  </body>
+</html>

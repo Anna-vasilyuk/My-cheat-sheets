@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Доступ до символів та довжина рядка</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Доступ до символів та робота з довгими рядками</h1>
+      <p>Як отримати окремий символ та визначити довжину рядка в JavaScript.</p>
+      <a href="../strings-base.html">← Назад до усіх рядків</a>
+    </header>
+
+    <main class="assignment-page">
+      <section class="assignment-intro">
+        <h2>Доступ до символів та довжина рядка</h2>
+        <p>
+          У JavaScript можна отримати окремий символ рядка за його індексом, а
+          також дізнатися, скільки символів міститься в рядку.
+        </p>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">1. Доступ до символів рядка</h2>
+
+        <p class="explanation">
+          Щоб отримати потрібний символ, використовують квадратні дужки та
+          індекс символу. Важливо пам'ятати, що індексація починається з нуля.
+        </p>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = 'I am string';
+
+console.log(str[0]); // I
+console.log(str[1]); // пробіл
+console.log(str[2]); // a</code></pre>
+        </div>
+
+        <button onclick="showCharacters()">Перевірити приклад</button>
+        <div id="characters-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">2. Довжина рядка — length</h2>
+
+        <p class="explanation">
+          Властивість <code>length</code> дозволяє дізнатися кількість символів
+          у рядку. Для її використання після назви змінної ставлять крапку та
+          слово <code>length</code>.
+        </p>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = 'I am string';
+
+console.log(str.length); // 11</code></pre>
+        </div>
+
+        <button onclick="showLength()">Перевірити довжину</button>
+        <div id="length-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">3. Незмінність рядків</h2>
+
+        <p class="explanation">
+          Рядки в JavaScript є незмінними (immutable). Це означає, що після
+          створення рядка не можна змінити окремий символ безпосередньо за його
+          індексом.
+        </p>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = 'Hi';
+
+str[0] = 'h';
+
+console.log(str); // Hi</code></pre>
+        </div>
+
+        <p class="explanation">
+          Присвоєння нового значення символу не змінює початковий рядок. У
+          строгому режимі така спроба спричинить помилку TypeError.
+        </p>
+
+        <button onclick="showImmutable()">Перевірити приклад</button>
+        <div id="immutable-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <ul class="summary-list">
+          <li><code>str[0]</code> — отримання першого символу рядка.</li>
+          <li>Індексація символів починається з нуля.</li>
+          <li><code>str.length</code> — кількість символів у рядку.</li>
+          <li>Рядки в JavaScript незмінні.</li>
+          <li>Щоб отримати змінений рядок, потрібно створити новий рядок.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      function showCharacters() {
+        let str = "I am string";
+
+        document.getElementById("characters-result").innerHTML =
+          "Перший символ: " +
+          str[0] +
+          "<br>Другий символ: пробіл" +
+          "<br>Третій символ: " +
+          str[2];
+      }
+
+      function showLength() {
+        let str = "I am string";
+
+        document.getElementById("length-result").textContent =
+          "Довжина рядка: " + str.length;
+      }
+
+      function showImmutable() {
+        let str = "Hi";
+
+        str[0] = "h";
+
+        document.getElementById("immutable-result").textContent =
+          "Після спроби змінити перший символ рядок залишився таким: " + str;
+      }
+    </script>
+  </body>
+</html>

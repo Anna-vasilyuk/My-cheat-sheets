@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Логічна пастка: if ("0") — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Логічна пастка: if ("0")</h1>
+      <p>Як JavaScript перетворює рядки на логічні значення всередині умов</p>
+      <a href="../practice-hub.html">← Назад до Хабу практики</a>
+    </header>
+
+    <main>
+      <!-- Теоретичний блок -->
+      <section>
+        <h2>Суть питання</h2>
+        <p>
+          У JavaScript інструкція <code>if (...)</code> завжди автоматично
+          перетворює будь-яке значення всередині круглих дужок на булевий тип —
+          <strong>true</strong> або <strong>false</strong>.
+        </p>
+        <p>
+          Розглянемо класичний приклад, на якому часто помиляються початківці:
+        </p>
+
+        <div class="code-example">
+          <pre><code>if ("0") {
+  alert('Привіт');
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- Пояснення пастки -->
+      <section>
+        <h2>Чому це працює саме так?</h2>
+        <div class="explanation">
+          <strong>Правило перетворення рядків:</strong>
+          <p>
+            У JavaScript діє залізне правило:
+            <strong
+              >будь-який непустий рядок завжди перетворюється на true</strong
+            >.
+          </p>
+          <p>
+            Текстовий рядок <code>"0"</code> містить у собі один символ (цифру
+            нуль), тому він **не є порожнім**. Двигун JavaScript бачить це як
+            правду (<code>true</code>) і запускає код у блоці.
+          </p>
+        </div>
+
+        <h3>Порівняння з числом 0</h3>
+        <p>
+          Не плутайте текст із числом! Якби всередині дужок стояло чисте число
+          <code>0</code> без лапок, воно б перетворилося на порожнечу
+          (<code>false</code>), і вікно не з'явилося б:
+        </p>
+        <pre><code>if (0) { 
+  alert('Цей код ніколи не запуститься'); 
+}</code></pre>
+      </section>
+
+      <!-- ==========================================================================
+           🟧 ВЕЛИКА ФІНАЛЬНА ПЛАШКА: ЗАКРІПИМО МАТЕРІАЛ (Теракотова, на весь екран)
+           ========================================================================== -->
+      <section
+        class="card"
+        style="
+          grid-column: span 6;
+          background: var(--terracotta);
+          color: var(--white);
+          padding: 40px;
+          border-radius: 10px;
+        "
+      >
+        <div style="text-align: center; margin-bottom: 25px">
+          <h3 style="font-size: 32px; color: var(--white); margin-bottom: 10px">
+            Закріпимо
+          </h3>
+          <p style="font-size: 18px; color: rgba(255, 255, 255, 0.9)">
+            Перевір цю пастку в дії прямо зараз!
+          </p>
+        </div>
+
+        <div
+          class="number-card"
+          style="
+            background: var(--white);
+            color: var(--burgundy);
+            padding: 25px;
+            border-radius: 8px;
+          "
+        >
+          <h3
+            style="font-size: 22px; margin-bottom: 10px; color: var(--burgundy)"
+          >
+            Чи буде показано alert?
+          </h3>
+          <p style="line-height: 1.6; margin-bottom: 15px; color: #333333">
+            Натисни кнопку нижче, щоб запустити цей код на виконання. Браузер
+            перевірить умову <code>if ("0")</code> і дасть фінальну відповідь.
+          </p>
+
+          <button onclick="runTrapAlert()">Запустити та перевірити код</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <script>
+      function runTrapAlert() {
+        // Та сама логічна пастка
+        if (2) {
+          alert("Привіт");
+        }
+      }
+    </script>
+  </body>
+</html>

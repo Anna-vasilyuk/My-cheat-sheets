@@ -6,6 +6,7 @@
   --olive: #757a4e;
   --yellow: #ede8b1;
   --white: #ffffff;
+  --terracotta: #c06c53;
 }
 
 /* Загальні стилі */
@@ -37,54 +38,83 @@ main {
   width: 1000px;
   margin: auto;
 }
-
-/* Картки */
+/* --- 1. Сітка для карток (Батьківський блок) --- */
 .cards {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr); /* Сітка з 6 рівних колонок */
   gap: 20px;
 }
 
+/* --- 2. Загальний вигляд карток (Всі одного розміру) --- */
 .card {
-  grid-column: span 2;
+  grid-column: span 2; /* Усі картки рівні: по 3 штуки в один ряд */
   padding: 30px;
   border-radius: 10px;
-  background: var(--blue);
+  background: var(--blue); /* Базовий колір */
   color: var(--burgundy);
   text-decoration: none;
+
+  /* Плавна анімація підйому при наведенні курсору */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Великі картки */
-.card:nth-child(1),
-.card:nth-child(2) {
-  grid-column: span 3;
+/* Ефект при наведенні мишки (картка плавно оживає) */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(83, 45, 58, 0.12);
 }
 
-/* Кольори */
-.card:nth-child(2),
-.card:nth-child(6) {
-  background: var(--yellow);
-}
-
-.card:nth-child(3) {
-  background: var(--olive);
-  color: var(--white);
-}
-
-.card:nth-child(4) {
-  background: var(--burgundy);
-  color: var(--white);
-}
-
-.card:nth-child(5) {
-  background: var(--white);
-}
-
-/* Заголовки карток */
+/* Заголовки всередині карток */
 .card h3 {
   margin-bottom: 10px;
 }
 
+/* --- 3. ЧІТКИЙ РОЗПОДІЛ КОЛЬОРІВ У МЕНЮ (По рядах) --- */
+
+/* 🟦 РЯД 1: Картки №1, №2, №3 — Ніжно-сині */
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3) {
+  background: var(--blue);
+  color: var(--burgundy);
+}
+
+/* 🟨 РЯД 2: Картки №4, №5, №6 — Пастельно-жовті */
+.card:nth-child(4),
+.card:nth-child(5),
+.card:nth-child(6) {
+  background: var(--yellow);
+  color: var(--burgundy);
+}
+
+/* 🟩 РЯД 3: Картки №7, №8, №9 — Оливкові з білим текстом */
+.card:nth-child(7),
+.card:nth-child(8),
+.card:nth-child(9) {
+  background: var(--olive);
+  color: var(--white);
+}
+
+/* ⬜ РЯД 4: Картки №10, №11 — Чисті білі */
+.card:nth-child(10),
+.card:nth-child(11) {
+  background: var(--white);
+  color: var(--burgundy);
+  border: 1px solid rgba(83, 45, 58, 0.08);
+}
+
+/* --- 4. ВЕЛИКА ФІНАЛЬНА ПЛАШКА "ЗАКРІПИМО МАТЕРІАЛ" --- */
+/* Картка №12 стає величезною (на весь рядок) та набуває нового кольору */
+.card:nth-child(12) {
+  grid-column: span 6; /* Розтягується на всю ширину сітки (6 з 6 колонок) */
+  background: var(--terracotta); /* Новий унікальний колір */
+  color: var(--white);
+  padding: 40px; /* Трохи збільшені внутрішні відступи для солідності */
+  border: none;
+  text-align: center; /* Центруємо текст для ефекту фінального блоку */
+}
 /* Підвал */
 footer {
   text-align: center;
@@ -475,4 +505,7 @@ section th {
       background: var(--yellow);
     }
   }
+}
+.unary-result {
+  white-space: pre-line;
 }

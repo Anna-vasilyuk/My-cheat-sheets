@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Логічні оператори — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Логічні оператори</h1>
+      <p>Логічні значення та створення умов у JavaScript</p>
+      <a href="operators.html">← Назад до операторів</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке логічні оператори?</h2>
+        <p>
+          Логічні висловлювання можуть набувати одного з двох значень:
+          <strong>true</strong> (істинно) або <strong>false</strong> (хибно).
+        </p>
+        <p>
+          У JavaScript логічні оператори використовуються для роботи з логічними
+          значеннями. Вони дозволяють об'єднувати умови, перевіряти їх та
+          створювати складні логічні вирази.
+        </p>
+      </section>
+
+      <!-- Основні логічні оператори -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Основні логічні оператори</h2>
+          </div>
+        </div>
+
+        <div class="assignment-operators">
+          <div>
+            <strong>&&</strong>
+            <p>Логічне І (AND).</p>
+          </div>
+          <div>
+            <strong>||</strong>
+            <p>Логічне АБО (OR).</p>
+          </div>
+          <div>
+            <strong>!</strong>
+            <p>Логічне заперечення (NOT).</p>
+          </div>
+          <div>
+            <strong>??</strong>
+            <p>Нульове злиття (Nullish).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Оператор AND -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Логічне І (&&)</h2>
+          </div>
+        </div>
+        <p>
+          Оператор <strong>&&</strong> повертає true лише тоді, коли обидві
+          умови є істинними. Якщо хоча б одна умова хибна, результатом буде
+          false.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Таблиця істинності</div>
+          <pre><code>true  && true  // true
+true  && false // false
+false && true  // false
+false && false // false</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Як це працює?</strong>
+          <p>
+            Щоб результат був true, обидва значення повинні бути true.
+            Наприклад, якщо потрібно перевірити, чи користувач повнолітній і чи
+            має він документ, обидві умови мають виконуватися.
+          </p>
+        </div>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let age = 20;
+let hasDocument = true;
+
+let result = age >= 18 && hasDocument;
+
+console.log(result); // true</code></pre>
+        </div>
+        <button onclick="showAnd()">Перевірити приклад</button>
+        <div class="assignment-result" id="and-result"></div>
+      </section>
+
+      <!-- Оператор OR -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Логічне АБО (||)</h2>
+          </div>
+        </div>
+        <p>
+          Оператор <strong>||</strong> повертає true, якщо хоча б одна з умов є
+          істинною. false повертається лише тоді, коли обидві умови хибні.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Таблиця істинності</div>
+          <pre><code>true  || true  // true
+true  || false // true
+false || true  // true
+false || false // false</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Як це працює?</strong>
+          <p>
+            Для отримання результату true достатньо, щоб хоча б одна умова була
+            істинною.
+          </p>
+        </div>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let hasTicket = false;
+let hasInvitation = true;
+
+let result = hasTicket || hasInvitation;
+
+console.log(result); // true</code></pre>
+        </div>
+        <button onclick="showOr()">Перевірити приклад</button>
+        <div class="assignment-result" id="or-result"></div>
+      </section>
+
+      <!-- Оператор NOT -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Логічне заперечення (!)</h2>
+          </div>
+        </div>
+        <p>
+          Оператор <strong>!</strong> змінює логічне значення на протилежне:
+          true перетворюється на false, а false — на true.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Таблиця істинності</div>
+          <pre><code>!true  // false
+!false // true</code></pre>
+        </div>
+        <div class="explanation">
+          <strong>Як це працює?</strong>
+          <p>
+            Оператор ! заперечує значення, яке стоїть після нього. Якщо умова
+            була істинною, результат стане хибним, і навпаки.
+          </p>
+        </div>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let isOnline = true;
+
+let result = !isOnline;
+
+console.log(result); // false</code></pre>
+        </div>
+        <button onclick="showNot()">Перевірити приклад</button>
+        <div class="assignment-result" id="not-result"></div>
+      </section>
+
+      <!-- НОВИЙ БЛОК: Оператор Nullish Coalescing (??) -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Оператор нульового злиття (??)</h2>
+          </div>
+        </div>
+        <p>
+          Оператор <strong>??</strong> використовується для визначення значення
+          за замовчуванням (fallback) для змінної. Він повертає праве значення
+          тільки тоді, коли ліве значення є <strong>null</strong> або
+          <strong>undefined</strong>.
+        </p>
+        <div class="explanation">
+          <strong>Головна перевага над || (АБО)</strong>
+          <p>
+            На відміну від оператора ||, який замінює на дефолт будь-які "хибні"
+            значення (як-от число <code>0</code> або порожній рядок
+            <code>""</code>), оператор ?? вважає нуль та порожній рядок
+            правильними даними. Він спрацьовує виключно на порожнечу
+            (null/undefined).
+          </p>
+        </div>
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let user = null;
+let defaultUser = { name: 'Гість' };
+
+let currentUser = user ?? defaultUser;
+
+console.log(currentUser); // { name: 'Гість' }</code></pre>
+        </div>
+        <button onclick="showNullish()">Перевірити приклад</button>
+        <div class="assignment-result" id="nullish-result"></div>
+      </section>
+
+      <!-- Загальна таблиця -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Загальна таблиця істинності</h2>
+          </div>
+        </div>
+        <p>
+          У таблицях нижче можна побачити, як змінюється результат залежно від
+          значень логічних висловлювань.
+        </p>
+        <div class="code-example">
+          <div class="code-title">Оператори && та ||</div>
+          <pre><code> A      B      A && B     A || B
+
+true   true     true       true
+true   false    false      true
+false  true     false      true
+false  false    false      false</code></pre>
+        </div>
+        <div class="code-example">
+          <div class="code-title">Оператор !</div>
+          <pre><code>A       !A
+
+true    false
+false   true</code></pre>
+        </div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <div class="summary-list">
+          <p>
+            <strong>&&</strong> — логічне І. Повертає true, якщо обидві умови
+            істинні.
+          </p>
+          <p>
+            <strong>||</strong> — логічне АБО. Повертає true, якщо хоча б одна
+            умова істинна.
+          </p>
+          <p>
+            <strong>!</strong> — логічне заперечення. Змінює логічне значення на
+            протилежне.
+          </p>
+          <p>
+            <strong>??</strong> — нульове злиття. Забезпечує підстраховку лише
+            для значень null та undefined.
+          </p>
+          <p><strong>true</strong> — істина.</p>
+          <p><strong>false</strong> — хиба.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // 1. Логічне І (&&)
+      function showAnd() {
+        let age = 20;
+        let hasDocument = true;
+        let result = age >= 18 && hasDocument;
+        document.getElementById("and-result").textContent =
+          `Вік: ${age}, документ є: ${hasDocument}\nРезультат: ${result}`;
+      }
+
+      // 2. Логічне АБО (||)
+      function showOr() {
+        let hasTicket = false;
+        let hasInvitation = true;
+        let result = hasTicket || hasInvitation;
+        document.getElementById("or-result").textContent =
+          `Квиток: ${hasTicket}, запрошення: ${hasInvitation}\nРезультат: ${result}`;
+      }
+
+      // 3. Логічне заперечення (!)
+      function showNot() {
+        let isOnline = true;
+        let result = !isOnline;
+        document.getElementById("not-result").textContent =
+          `Початкове значення: ${isOnline}\nПісля заперечення: ${result}`;
+      }
+
+      // 4. Оператор нульового злиття (??)
+      function showNullish() {
+        let user = null;
+        let defaultUser = "Гість";
+        let currentUser = user ?? defaultUser;
+        document.getElementById("nullish-result").textContent =
+          `Поточний user: ${user}\nЗначення currentUser через ??: "${currentUser}"`;
+      }
+    </script>
+  </body>
+</html>

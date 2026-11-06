@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модальне вікно prompt() — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Функція prompt() в JavaScript</h1>
+      <p>Отримання текстових даних від користувача сайту</p>
+      <a href="../interaction.html">← Назад до усіх інструментів</a>
+    </header>
+
+    <main>
+      <!-- Що таке prompt -->
+      <section>
+        <h2>Синтаксис функції</h2>
+        <p>
+          Функція <strong>prompt()</strong> використовується для того, щоб
+          задати відвідувачу сайту запитання, надати поле для введення тексту та
+          дочекатися відповіді.
+        </p>
+
+        <pre><code>prompt(title, [default]);</code></pre>
+
+        <ul>
+          <li>
+            <strong>title</strong> — текст (запитання), який буде відображатися
+            для відвідувача.
+          </li>
+          <li>
+            <strong>default</strong> — необов'язковий другий параметр, що задає
+            початкове (заздалегідь вписане) значення у полі введення.
+          </li>
+        </ul>
+
+        <h3>Квадратні дужки [ ] у документації</h3>
+        <p>
+          У синтаксисі вище навколо параметра <code>default</code> стоять
+          квадратні дужки. У технічній документації це завжди означає, що
+          параметр є <strong>необов'язковим</strong>. Його можна просто не
+          писати.
+        </p>
+      </section>
+
+      <!-- Що повертає метод -->
+      <section>
+        <h2>Що повертає виклик prompt()?</h2>
+        <p>Функція завжди повертає один із двох варіантів результату:</p>
+        <ul>
+          <li>
+            <strong>Текст</strong> — якщо користувач ввів дані й натиснув "ОК"
+            (навіть якщо рядок залишився порожнім, повернеться <code>""</code>).
+          </li>
+          <li>
+            <strong>null</strong> — унікальний тип даних, який повертається,
+            якщо користувач натиснув кнопку "Скасувати" (Cancel) або закрив
+            вікно клавішею Esc.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Інтерактивний приклад -->
+      <section>
+        <h2>Практичний приклад роботи коду</h2>
+        <p>
+          Натисніть кнопку, щоб запустити вікно запиту імені та перевірити
+          роботу логічного розгалуження в консолі й на екрані:
+        </p>
+
+        <pre><code>let name = prompt("Будь ласка, введіть ваше ім'я:");
+
+if (name !== null) {
+  console.log(`Вас звати ${name}`);
+} else {
+  console.log("Ви скасували введення.");
+}</code></pre>
+
+        <button onclick="runPromptExample()">Запустити prompt()</button>
+        <div
+          class="unary-result"
+          id="prompt-result"
+          style="margin-top: 20px; font-weight: bold"
+        ></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section>
+        <h2>Запам'ятай</h2>
+        <p>
+          <strong>prompt()</strong> — створює модальне вікно з полем введення
+          тексту.
+        </p>
+        <p>
+          <strong>null</strong> — ознака того, що користувач передумав і
+          скасував операцію.
+        </p>
+        <p>
+          <strong>Тип даних</strong> — усе, що користувач вводить у вікно
+          (наприклад, число 25), автоматично повертається як
+          <strong>рядок (String)</strong>. Для математичних розрахунків цей
+          результат доведеться перетворювати на число.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <script>
+      function runPromptExample() {
+        // Викликаємо вікно prompt
+        let name = prompt("Будь ласка, введіть ваше ім'я:");
+        let resultBlock = document.getElementById("prompt-result");
+
+        // Перевіряємо, чи користувач не натиснув "Скасувати" (null)
+        if (name !== null) {
+          // Якщо ввів порожній рядок
+          if (name.trim() === "") {
+            resultBlock.textContent =
+              "Результат: Ви натиснули ОК, але залишили поле порожнім.";
+          } else {
+            resultBlock.textContent = `Результат: Вас звати ${name}`;
+          }
+        } else {
+          resultBlock.textContent =
+            "Результат: Ви скасували введення (повернуто null).";
+        }
+      }
+    </script>
+  </body>
+</html>

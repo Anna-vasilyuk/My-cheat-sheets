@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шаблонні рядки — JavaScript</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Шаблонні рядки в JavaScript</h1>
+      <p>Створення, форматування та робота з рядками</p>
+      <a href="../strings-base.html">← Назад до усіх рядків</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Вступ -->
+      <section class="assignment-intro">
+        <h2>Що таке шаблонні рядки?</h2>
+
+        <p>
+          Шаблонні рядки — це зручний спосіб створення та форматування рядків у
+          JavaScript. Вони дозволяють вставляти значення змінних, виконувати
+          вирази безпосередньо всередині рядка та створювати багаторядковий
+          текст.
+        </p>
+
+        <p>
+          Головна особливість шаблонних рядків — використання зворотних лапок
+          (<strong>` `</strong>) замість звичайних одинарних або подвійних
+          лапок.
+        </p>
+      </section>
+
+      <!-- Синтаксис -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Синтаксис шаблонних рядків</h2>
+          </div>
+        </div>
+
+        <p>
+          Шаблонні рядки записуються за допомогою зворотних лапок. Для
+          вставлення змінних та виразів використовуються спеціальні конструкції
+          <strong>${...}</strong>.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>const name = "John";
+
+const greeting = `Привіт, ${name}!`;
+
+console.log(greeting); // Привіт, John!</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Створюється змінна name зі значенням John. Усередині шаблонного
+            рядка за допомогою ${name} вставляється значення цієї змінної. У
+            результаті отримуємо рядок "Привіт, John!".
+          </p>
+        </div>
+
+        <button onclick="showTemplate()">Перевірити приклад</button>
+        <div class="assignment-result" id="template-result"></div>
+      </section>
+
+      <!-- Вставлення виразів -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Вставлення виразів у шаблонні рядки</h2>
+          </div>
+        </div>
+
+        <p>
+          За допомогою ${...} можна вставляти не лише змінні, а й математичні
+          вирази та результати обчислень.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>const a = 10;
+const b = 5;
+
+const result = `Сума чисел: ${a + b}`;
+
+console.log(result); // Сума чисел: 15</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            Усередині шаблонного рядка записаний вираз ${a + b}. JavaScript
+            спочатку обчислює суму чисел 10 і 5, а потім вставляє результат 15 у
+            рядок.
+          </p>
+        </div>
+
+        <button onclick="showExpression()">Перевірити приклад</button>
+        <div class="assignment-result" id="expression-result"></div>
+      </section>
+
+      <!-- Багаторядковий текст -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Багаторядковий текст</h2>
+          </div>
+        </div>
+
+        <p>
+          Шаблонні рядки дозволяють створювати текст, який займає декілька
+          рядків. Для цього достатньо записати текст між зворотними лапками та
+          перейти на новий рядок. Використовувати спеціальний символ \n не
+          потрібно.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>const best = `
+Думи мої, думи мої,
+Лихо мені з вами!
+Нащо стали на папері
+Сумними рядами?..`;
+
+console.log(best);</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що відбувається?</strong>
+          <p>
+            У змінній best зберігається багаторядковий текст. Переноси рядків
+            зберігаються автоматично. Під час виведення через console.log текст
+            відображається у тому самому форматі, у якому його було записано.
+          </p>
+        </div>
+
+        <button onclick="showMultiline()">Перевірити приклад</button>
+        <div class="assignment-result" id="multiline-result"></div>
+      </section>
+
+      <!-- Порівняння -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <div>
+            <h2>Звичайні рядки та шаблонні рядки</h2>
+          </div>
+        </div>
+
+        <p>
+          Звичайні рядки створюються за допомогою одинарних або подвійних лапок.
+          Шаблонні рядки використовують зворотні лапки та дозволяють вставляти
+          значення змінних без додаткового об'єднання.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Звичайний рядок</div>
+          <pre><code>const name = "John";
+
+const greeting = "Привіт, " + name + "!";
+
+console.log(greeting);</code></pre>
+        </div>
+
+        <div class="code-example">
+          <div class="code-title">Шаблонний рядок</div>
+          <pre><code>const name = "John";
+
+const greeting = `Привіт, ${name}!`;
+
+console.log(greeting);</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>У чому різниця?</strong>
+          <p>
+            Обидва приклади дають однаковий результат. Проте шаблонний рядок
+            робить код коротшим і зрозумілішим, особливо коли потрібно вставити
+            декілька змінних.
+          </p>
+        </div>
+
+        <button onclick="showComparison()">Перевірити приклад</button>
+        <div class="assignment-result" id="comparison-result"></div>
+      </section>
+
+      <!-- Підсумок -->
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+
+        <div class="summary-list">
+          <p>
+            <strong>` `</strong> — зворотні лапки, які використовуються для
+            створення шаблонних рядків.
+          </p>
+
+          <p>
+            <strong>${...}</strong> — конструкція для вставлення змінних та
+            виразів у рядок.
+          </p>
+
+          <p>
+            <strong>Багаторядковість</strong> — можливість записувати текст у
+            декілька рядків без використання \n.
+          </p>
+
+          <p>
+            <strong>Шаблонні рядки</strong> — спрощують створення та
+            форматування тексту в JavaScript.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // 1. Синтаксис шаблонних рядків
+      function showTemplate() {
+        const name = "John";
+        const greeting = `Привіт, ${name}!`;
+
+        document.getElementById("template-result").textContent = greeting;
+      }
+
+      // 2. Вставлення виразів
+      function showExpression() {
+        const a = 10;
+        const b = 5;
+
+        const result = `Сума чисел: ${a + b}`;
+
+        document.getElementById("expression-result").textContent = result;
+      }
+
+      // 3. Багаторядковий текст
+      function showMultiline() {
+        const best = `Думи мої, думи мої,
+Лихо мені з вами!
+Нащо стали на папері
+Сумними рядами?..`;
+
+        document.getElementById("multiline-result").textContent = best;
+      }
+
+      // 4. Порівняння звичайного та шаблонного рядків
+      function showComparison() {
+        const name = "John";
+
+        const regularString = "Привіт, " + name + "!";
+        const templateString = `Привіт, ${name}!`;
+
+        document.getElementById("comparison-result").textContent =
+          "Звичайний рядок: " +
+          regularString +
+          "\nШаблонний рядок: " +
+          templateString;
+      }
+    </script>
+  </body>
+</html>

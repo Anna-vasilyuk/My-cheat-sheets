@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Рядки в JavaScript (String)</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Рядки в JavaScript (Тип даних String)</h1>
+      <p>Основи роботи з текстом, створення рядків та конкатенація</p>
+      <a href="../javascript.html">← Назад до JavaScript</a>
+    </header>
+
+    <main class="assignment-page">
+      <!-- Що таке рядки -->
+      <section class="assignment-intro">
+        <h2>Що таке рядок?</h2>
+        <p>
+          <strong>Рядок (String)</strong> — це примітивний тип даних у
+          JavaScript, який використовується для представлення текстової
+          інформації. Будь-який текст, загорнутий у лапки, комп'ютер вважає
+          рядком (навіть число <code>"25"</code>).
+        </p>
+        <div class="explanation">
+          <strong>Перевірка типу:</strong>
+          <p>
+            Команда <code>typeof "Hello"</code> завжди повертає значення
+            <code>"string"</code>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Покрокові посилання (Ваші кнопки переходу) -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>Покрокове вивчення теми рядків</h2>
+        </div>
+        <p>Оберіть наступний крок розширення теми, щоб дізнатися більше:</p>
+
+        <div class="strings-menu">
+          <!-- Крок 1: Шаблонні рядки -->
+          <a href="./strings/template-strings.html" class="string-step-btn">
+            <h3>Крок 1. Шаблонні рядки →</h3>
+            <p>
+              Дізнайтеся про роботу з оберненими апострофами (` `), інтерполяцію
+              змінних через ${} та створення багаторядкового тексту.
+            </p>
+          </a>
+
+          <!-- Крок 2: Доступ до символів -->
+          <a href="./strings/characters-access.html" class="string-step-btn">
+            <h3>Крок 2. Доступ до символів та довжина рядка →</h3>
+            <p>
+              Вивчіть роботу з індексами рядка, використання властивості .length
+              та найголовніше правило безпеки — незмінність рядків.
+            </p>
+          </a>
+          <!-- Крок 3: Заміна підрядка -->
+          <a href="./strings/replace-string.html" class="string-step-btn">
+            <h3>Крок 3. Заміна підрядка →</h3>
+            <p>
+              Розберіться з роботою методу .replace() для пошуку та заміни слів
+              у тексті без зміни оригіналу.
+            </p>
+          </a>
+          <!-- Крок 4: Копіювання підрядка -->
+          <a href="./strings/copy-substring.html" class="string-step-btn">
+            <h3>Крок 4. Копіювання підрядка →</h3>
+            <p>
+              Розберіться з роботою методу .substring() для отримання частини
+              рядка.
+            </p>
+          </a>
+          <!-- Крок 5: Виділення частини рядка -->
+          <a href="./strings/string-slice.html" class="string-step-btn">
+            <h3>Крок 5. Виділення частини рядка →</h3>
+          </a>
+        </div>
+      </section>
+
+      <!-- Конкатенація -->
+      <section class="assignment-topic">
+        <div class="topic-heading">
+          <h2>Базова операція: Об'єднання рядків (Конкатенація)</h2>
+        </div>
+        <p>
+          За допомогою оператора <strong>+</strong> рядки можна легко
+          "склеювати" між собою. Якщо ви додаєте число до рядка, JavaScript
+          автоматично перетворить число на текст.
+        </p>
+
+        <div class="code-example">
+          <div class="code-title">Приклад коду</div>
+          <pre><code>let user = "John";
+let age = 25;
+let message = "Hello";
+
+// Склеюємо через плюс та додаємо пробіли з комами:
+alert(user + ", " + age + ", " + message); // "John, 25, Hello"</code></pre>
+        </div>
+
+        <button onclick="runVariables()">Запустити приклад конкатенації</button>
+      </section>
+    </main>
+
+    <script>
+      // Функція конкатенації
+      function runVariables() {
+        let user = "John";
+        let age = 25;
+        let message = "Hello";
+        alert(`${user}, ${age}, ${message}`);
+      }
+    </script>
+  </body>
+</html>

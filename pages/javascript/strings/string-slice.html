@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Виділення частини рядка — slice()</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Виділення частини рядка</h1>
+      <p>Як отримати частину рядка за допомогою методу slice().</p>
+      <a href="../strings-base.html">← Назад до усіх рядків</a>
+    </header>
+
+    <main class="assignment-page">
+      <section class="assignment-intro">
+        <h2>Метод slice()</h2>
+        <p>
+          Метод <code>slice()</code> витягує частину рядка та повертає її у
+          вигляді нового рядка. Початковий рядок при цьому не змінюється.
+        </p>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">1. Синтаксис методу slice()</h2>
+
+        <div class="code-example">
+          <p class="code-title">Синтаксис:</p>
+          <pre><code>str.slice(start, end);</code></pre>
+        </div>
+
+        <p class="explanation">
+          <code>start</code> — індекс, з якого починається витягування частини
+          рядка.
+          <br />
+          <code>end</code> — індекс, до якого витягується рядок, але сам символ
+          із цим індексом не включається.
+        </p>
+
+        <p class="explanation">
+          Якщо параметр <code>end</code> не вказати, метод поверне всі символи
+          від <code>start</code>
+          до кінця рядка.
+        </p>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">2. Витягування частини рядка</h2>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = "Please visit Microsoft!";
+
+console.log(str.slice(5));
+// "e visit Microsoft!"
+
+console.log(str.slice(5, 6));
+// "e"</code></pre>
+        </div>
+
+        <p class="explanation">
+          У першому прикладі метод повертає всі символи, починаючи з індексу 5 і
+          до кінця рядка.
+          <br />
+          У другому прикладі повертається лише один символ з індексом 5,
+          оскільки символ з індексом 6 не включається.
+        </p>
+
+        <button onclick="showSlice()">Перевірити приклад</button>
+        <div id="slice-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-topic">
+        <h2 class="topic-heading">3. Використання від'ємних індексів</h2>
+
+        <p class="explanation">
+          Метод <code>slice()</code> також підтримує від'ємні індекси. Вони
+          рахуються з кінця рядка. Наприклад, індекс -1 означає останній символ.
+        </p>
+
+        <div class="code-example">
+          <p class="code-title">Приклад:</p>
+          <pre><code>let str = "JavaScript";
+
+console.log(str.slice(-6)); // "Script"
+console.log(str.slice(-6, -3)); // "Scr"</code></pre>
+        </div>
+
+        <button onclick="showNegativeSlice()">Перевірити приклад</button>
+        <div id="negative-slice-result" class="assignment-result"></div>
+      </section>
+
+      <section class="assignment-summary">
+        <h2>Запам'ятай</h2>
+        <ul class="summary-list">
+          <li><code>slice(start, end)</code> витягує частину рядка.</li>
+          <li><code>start</code> — початковий індекс, він включається.</li>
+          <li><code>end</code> — кінцевий індекс, він не включається.</li>
+          <li>Якщо <code>end</code> не вказано, рядок витягується до кінця.</li>
+          <li>Можна використовувати від'ємні індекси.</li>
+          <li>Метод <code>slice()</code> не змінює початковий рядок.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      function showSlice() {
+        let str = "Please visit Microsoft!";
+
+        document.getElementById("slice-result").innerHTML =
+          "slice(5): " + str.slice(5) + "<br>slice(5, 6): " + str.slice(5, 6);
+      }
+
+      function showNegativeSlice() {
+        let str = "JavaScript";
+
+        document.getElementById("negative-slice-result").innerHTML =
+          "slice(-6): " +
+          str.slice(-6) +
+          "<br>slice(-6, -3): " +
+          str.slice(-6, -3);
+      }
+    </script>
+  </body>
+</html>
