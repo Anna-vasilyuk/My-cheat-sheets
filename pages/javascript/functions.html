@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функції в JavaScript — Functions</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Функції в JavaScript</h1>
+      <a href="../javascript.html">← Назад до JavaScript</a>
+    </header>
+
+    <main>
+      <!-- 1. Вступ до функцій -->
+      <section class="functions-intro">
+        <div class="topic-heading">
+          <h2>Що таке функції?</h2>
+        </div>
+
+        <p>
+          Під час написання програми часто виникає потреба виконувати одну й ту
+          саму дію в різних її частинах.
+        </p>
+
+        <p>
+          Наприклад, сайт може виводити повідомлення, коли відвідувач заходить
+          на сторінку, виходить із неї або виконує певну дію.
+        </p>
+
+        <div class="explanation">
+          <strong>У чому проблема?</strong>
+          <p>
+            Якщо щоразу писати однаковий код заново, програма стає довшою, а
+            підтримувати її складніше.
+          </p>
+        </div>
+
+        <h3>Рішення — функції</h3>
+
+        <p>
+          <strong>Функція (Function)</strong> — це окремий блок коду, який можна
+          створити один раз, а потім викликати тоді, коли потрібно виконати
+          певну дію.
+        </p>
+
+        <div class="explanation">
+          <strong>Уяви функцію як інструкцію:</strong>
+          <p>
+            Ти один раз пояснюєш, що потрібно зробити, а потім можеш попросити
+            виконати цю інструкцію знову.
+          </p>
+        </div>
+
+        <!-- Вбудовані функції -->
+        <h3>Вбудовані функції JavaScript</h3>
+
+        <p>
+          У JavaScript уже є готові функції, які ми можемо використовувати без
+          самостійного створення.
+        </p>
+
+        <div class="conversion-functions">
+          <div>
+            <strong>alert(message)</strong>
+            <span> Виводить повідомлення у спливаючому вікні браузера. </span>
+          </div>
+
+          <div>
+            <strong>prompt(message, default)</strong>
+            <span> Відкриває вікно, у якому користувач може ввести дані. </span>
+          </div>
+
+          <div>
+            <strong>confirm(question)</strong>
+            <span>
+              Запитує підтвердження дії за допомогою кнопок OK та Cancel.
+            </span>
+          </div>
+        </div>
+
+        <div class="code-example">
+          <div class="code-title">Приклади вбудованих функцій</div>
+          <pre><code>alert("Привіт!");
+
+let name = prompt("Як тебе звати?");
+
+let answer = confirm("Продовжити?");</code></pre>
+        </div>
+
+        <div class="explanation">
+          <strong>Що потрібно зрозуміти?</strong>
+          <p>
+            alert(), prompt() та confirm() — це вже готові функції. Ми лише
+            викликаємо їх і передаємо потрібні значення.
+          </p>
+        </div>
+
+        <!-- Власні функції -->
+        <h3>Власні функції</h3>
+
+        <p>
+          Окрім готових функцій, JavaScript дозволяє створювати власні. Ми
+          самостійно визначаємо, які дії вони будуть виконувати.
+        </p>
+
+        <div class="summary-list">
+          <p><strong>Головне, що потрібно запам'ятати:</strong></p>
+          <p>
+            Функція допомагає уникати повторення однакового коду та повторно
+            використовувати вже написані інструкції.
+          </p>
+        </div>
+      </section>
+
+      <section class="functions-topic">
+        <h2>Оголошення функції</h2>
+
+        <p>
+          У JavaScript є два основні способи створення функцій:
+          <strong>Function Declaration</strong> та
+          <strong>Function Expression</strong>.
+        </p>
+
+        <div class="function-types">
+          <div class="function-type">
+            <h3>Function Declaration</h3>
+            <p>
+              Функція оголошується за допомогою ключового слова
+              <code>function</code>.
+            </p>
+
+            <pre><code>function showName() {
+  console.log('My name');
+}</code></pre>
+          </div>
+
+          <div class="function-type">
+            <h3>Function Expression</h3>
+            <p>Функція створюється та записується у змінну.</p>
+
+            <pre><code>let showName = function() {
+  console.log('My name');
+};</code></pre>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <strong>У чому різниця?</strong>
+          <p>
+            Головна відмінність полягає в тому, що Function Declaration можна
+            викликати ще до місця її оголошення в коді. JavaScript обробляє такі
+            оголошення до виконання коду.
+          </p>
+        </div>
+
+        <h3>Виклик до оголошення</h3>
+
+        <pre><code>showName();
+
+function showName() {
+  console.log('My name');
+}</code></pre>
+
+        <p>
+          Цей приклад працює: у консолі з'явиться повідомлення
+          <code>My name</code>.
+        </p>
+
+        <h3>А що з Function Expression?</h3>
+
+        <pre><code>showName();
+
+let showName = function() {
+  console.log('My name');
+};</code></pre>
+
+        <p>
+          Такий код викличе помилку, тому що змінна ще не отримала значення
+          функції на момент виклику.
+        </p>
+
+        <div class="function-summary">
+          <strong>Запам'ятай:</strong>
+          <ul>
+            <li>
+              Function Declaration — функцію можна викликати до її оголошення.
+            </li>
+            <li>
+              Function Expression — спочатку потрібно створити функцію та
+              присвоїти її змінній, а вже потім викликати.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="functions-topic">
+        <h2>Область видимості (Scope)</h2>
+
+        <p>
+          Область видимості визначає, звідки в програмі можна отримати доступ до
+          змінної.
+        </p>
+
+        <h3>1. Змінні всередині функції</h3>
+
+        <p>
+          Змінні, оголошені всередині функції, доступні лише в межах цієї
+          функції. Ззовні звернутися до них не можна.
+        </p>
+
+        <pre><code>function showName() {
+  let message = 'My name';
+
+  console.log(message);
+}
+
+showName(); // My name
+
+console.log(message); // Error</code></pre>
+
+        <div class="explanation">
+          <strong>Чому виникає помилка?</strong>
+          <p>
+            Змінна <code>message</code> створена всередині функції
+            <code>showName()</code>. Тому вона існує лише в її області
+            видимості. Після завершення функції звернутися до неї ззовні не
+            можна.
+          </p>
+        </div>
+
+        <h3>2. Доступ до зовнішніх змінних</h3>
+
+        <p>Функція може використовувати змінні, які оголошені за її межами.</p>
+
+        <pre><code>let name = 'Anton';
+
+function showName() {
+  let message = `Hi, ${name}`;
+
+  console.log(message);
+}
+
+showName(); // Hi, Anton</code></pre>
+
+        <div class="explanation">
+          <strong>Чому це працює?</strong>
+          <p>
+            Змінна <code>name</code> оголошена зовні функції. Функція
+            <code>showName()</code> має доступ до неї, тому може використовувати
+            її всередині свого коду.
+          </p>
+        </div>
+
+        <div class="function-summary">
+          <strong>Запам'ятай:</strong>
+          <ul>
+            <li>Внутрішні змінні доступні лише всередині своєї функції.</li>
+            <li>Функція може звертатися до зовнішніх змінних.</li>
+            <li>
+              Зовнішній код не може звертатися до локальних змінних функції.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="functions-topic">
+        <h2>Зміна зовнішніх змінних</h2>
+
+        <p>
+          Функція має повний доступ до зовнішніх змінних і може не лише читати
+          їх, але й <strong>змінювати їхні значення</strong>.
+        </p>
+
+        <pre><code>let userName = 'Іван';
+
+function showMessage() {
+  userName = "Богдан"; // Змінюємо значення зовнішньої змінної
+  let message = 'Здоровенькі були, ' + userName;
+  alert(message);
+}
+
+alert(userName); // Іван (до виклику функції)
+
+showMessage();   // Викличе вікно з текстом: "Здоровенькі були, Богдан"
+
+alert(userName); // Богдан (значення змінилося назавжди)</code></pre>
+
+        <button onclick="runScopeDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Зверніть увагу:</strong>
+          <p>
+            Якщо всередині функції змінна перевизначається
+            <strong>без</strong> ключових слів <code>let</code> або
+            <code>const</code> (як у рядку <code>userName = "Богдан"</code>),
+            JavaScript шукає її ззовні та перезаписує глобальне значення.
+          </p>
+        </div>
+        <h3>Перекриття (затінення) зовнішніх змінних</h3>
+
+        <p>
+          Зовнішня змінна використовується функцією тільки тоді, коли всередині
+          функції немає однойменної локальної змінної.
+        </p>
+
+        <p>
+          Якщо змінна з таким самим ім'ям оголошується всередині функції через
+          <code>let</code> або <code>const</code>, вона
+          <strong>перекриває (затінює)</strong> зовнішню змінну. Зовнішню буде
+          проігноровано.
+        </p>
+
+        <pre><code>let userName = 'Іван'; // Оголошення зовнішньої змінної
+
+function showMessage() {
+  let userName = "Богдан"; // Оголошення локальної змінної (вона перекриває зовнішню)
+  let message = 'Привіт, ' + userName; // Використає "Богдан"
+  alert(message);
+}
+
+// Функція завжди віддасть перевагу локальним змінним
+showMessage(); // Виведе вікно: "Привіт, Богдан"
+
+alert(userName); // Іван (значення зовнішньої змінної залишилося без змін)</code></pre>
+
+        <button onclick="runShadowingDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>У чому головна фішка?</strong>
+          <p>
+            Оскільки всередині функції було використано ключове слово
+            <code>let userName</code>, JavaScript створив
+            <strong>абсолютно нову, локальну змінну</strong>. Вона живе тільки
+            всередині функції і ніяк не впливає на зовнішню змінну
+            <code>userName</code>, яка залишилася зовні.
+          </p>
+        </div>
+      </section>
+      <!-- 4. Параметри та аргументи -->
+      <section class="functions-topic">
+        <h2>Аргументи функції</h2>
+
+        <p>
+          Ми можемо передати всередину функції будь-яку інформацію,
+          використовуючи параметри та аргументи виклику.
+        </p>
+
+        <p>
+          У наведеному нижче прикладі функції передаються два параметри:
+          <code>from</code> і <code>text</code>.
+        </p>
+
+        <pre><code>function showMessage(from, text) { // параметри: from, text
+  alert(from + ': ' + text);
+}
+
+showMessage('Анна', 'Привіт!'); // Анна: Привіт! (*)
+showMessage('Анна', 'Як справи?'); // Анна: Як справи? (**)</code></pre>
+
+        <button onclick="runArgumentsDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Як це працює?</strong>
+          <p>
+            Надіслані значення під час виклику копіюються в локальні змінні
+            <code>from</code> і <code>text</code>. Потім вони використовуються
+            всередині тіла функції.
+          </p>
+        </div>
+      </section>
+      <!-- 5. Аргументи за замовчуванням -->
+      <section class="functions-topic">
+        <h2>Аргументи за замовчуванням</h2>
+
+        <p>
+          Якщо параметр не вказано під час виклику функції, його значенням
+          автоматично стає <code>undefined</code>.
+        </p>
+
+        <p>
+          Наприклад, вищезазначена функція
+          <code>showMessage(from, text)</code> може бути викликана лише з одним
+          аргументом: <code>showMessage('Анна');</code>. Це не призведе до
+          помилки, але такий виклик виведе <code>"Анна: undefined"</code>,
+          оскільки параметр <code>text</code> не було передано.
+        </p>
+
+        <div class="explanation">
+          <strong>Рішення — значення за замовчуванням:</strong>
+          <p>
+            Щоб уникнути появи <code>undefined</code>, ми можемо вказати
+            значення за замовчуванням прямо при оголошенні функції за допомогою
+            знака рівності <code>=</code>.
+          </p>
+        </div>
+
+        <pre><code>function showMessage(from, text = "текст не задано") {
+  alert( from + ": " + text );
+}
+
+showMessage("Анна"); // Анна: текст не задано</code></pre>
+
+        <button onclick="runDefaultArgsDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Важливий нюанс:</strong>
+          <p>
+            Значення за замовчуванням спрацьовує лише в тому випадку, якщо
+            аргумент взагалі <strong>не передали</strong>, або якщо замість
+            нього передали значення <code>undefined</code>.
+          </p>
+        </div>
+      </section>
+      <!-- 6. Повернення значення -->
+      <section class="functions-topic">
+        <h2>Повернення значення</h2>
+
+        <p>
+          Функція може повернути результат, який буде переданий у код, що її
+          викликав.
+        </p>
+
+        <p>Найпростішим прикладом може бути функція складання двох чисел:</p>
+
+        <pre><code>function sum(a, b) {
+  return a + b;
+}
+
+let result = sum(1, 2);
+alert( result ); // 3</code></pre>
+
+        <button onclick="runReturnDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Як працює директива return?</strong>
+          <p>
+            Директива <code>return</code> може знаходитись у будь-якому місці
+            тіла функції. Як тільки виконання коду доходить до цього місця,
+            <strong>функція миттєво зупиняється</strong>, і значення
+            повертається в код, що викликав її (наприклад, присвоюється змінній
+            <code>result</code>).
+          </p>
+        </div>
+        <h3>Кілька викликів return</h3>
+
+        <p>
+          Усередині однієї функції директива <code>return</code> може
+          використовуватися кілька разів, наприклад, у різних гілках
+          розгалуження <code>if...else</code>.
+        </p>
+
+        <pre><code>function checkAge(age) {
+  if (age >= 18) {
+    return true;
+  } else {
+    return confirm('У вас є дозвіл ваших батьків?');
+  }
+}
+
+let age = prompt('Скільки вам років?', 18);
+
+if ( checkAge(Number(age)) ) {
+  alert( "Доступ надано" );
+} else {
+  alert( "У доступі відмовлено" );
+}</code></pre>
+
+        <button onclick="runMultipleReturnsDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Як це працює?</strong>
+          <ul>
+            <li>
+              Введене користувачем значення ми обов'язково приводимо до числа за
+              допомогою <code>Number(age)</code>.
+            </li>
+            <li>
+              Якщо перша умова <code>age >= 18</code> виконується, функція
+              відразу повертає <code>true</code> і миттєво припиняє роботу,
+              ігноруючи блок <code>else</code>.
+            </li>
+            <li>
+              Якщо умова хибна (користувачу менше 18), спрацьовує другий
+              <code>return</code>, який передає результат вікна
+              <code>confirm</code>.
+            </li>
+          </ul>
+        </div>
+        <h3>Функція без значення, що повертається</h3>
+
+        <p>
+          Результат функції з порожнім <code>return</code> або взагалі без нього
+          — завжди <code>undefined</code>.
+        </p>
+
+        <p>
+          Якщо функція не має директиви <code>return</code>, вона все одно
+          повертає результат, як тільки доходить до кінця свого тіла.
+        </p>
+
+        <pre><code>function doNothing() { /* порожньо */ }
+
+alert( doNothing() === undefined ); // true</code></pre>
+
+        <p>
+          Використання порожнього оператора <code>return</code> повністю
+          аналогічне запису <code>return undefined</code>:
+        </p>
+
+        <pre><code>function doNothing() {
+  return;
+}
+
+alert( doNothing() === undefined ); // true</code></pre>
+
+        <button onclick="runUndefinedReturnDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Запам'ятай:</strong>
+          <p>
+            Будь-яка функція в JavaScript завжди щось повертає. Якщо ви не
+            вказали конкретне значення за допомогою <code>return</code>, рушій
+            мови автоматично підставить туди <code>undefined</code>.
+          </p>
+        </div>
+      </section>
+      <!-- 7. Вибір імені функції -->
+      <section class="functions-topic">
+        <h2>Вибір імені функції</h2>
+
+        <p>
+          Функція — це дія. Тому імʼя функції зазвичай є
+          <strong>дієсловом</strong>. Воно повинно бути коротким, точним і
+          описувати те, що саме робить функція, щоб інший розробник міг легко
+          зрозуміти код.
+        </p>
+
+        <p>
+          У середовищі розробників прийнято використовувати спеціальні префікси
+          (дієслова-приставки) на початку імені, які задають характер дії:
+        </p>
+
+        <div class="conversion-functions">
+          <div>
+            <strong>"get..."</strong>
+            <span>Повертає певне значення (отримує або обчислює його).</span>
+          </div>
+
+          <div>
+            <strong>"calc..."</strong>
+            <span>Щось обчислює математично та віддає результат.</span>
+          </div>
+
+          <div>
+            <strong>"create..."</strong>
+            <span>Щось створює (наприклад, елемент інтерфейсу).</span>
+          </div>
+
+          <div>
+            <strong>"check..."</strong>
+            <span
+              >Перевіряє умову і зазвичай повертає булеве значення
+              (<code>true/false</code>).</span
+            >
+          </div>
+        </div>
+
+        <h3>Приклади префіксів у коді</h3>
+
+        <pre><code>showMessage(...)     // Показує повідомлення
+getAge(...)          // Повертає вік (отримує його)
+calcSum(...)         // Обчислює суму і повертає результат
+createForm(...)      // Створює HTML-форму і повертає її
+checkPermission(...) // Перевіряє доступ, повертає true або false</code></pre>
+
+        <div class="explanation">
+          <strong>Головне правило розробника:</strong>
+          <p>
+            Завдяки правильним префіксам, навіть при першому погляді на назву
+            функції стає абсолютно зрозумілим, що саме робить її код та яке
+            значення вона може повернути. Одна функція повинна робити
+            <strong>рівно одну дію.</strong>
+          </p>
+        </div>
+      </section>
+      <!-- 8. Чисті функції -->
+      <section class="functions-topic">
+        <h2>Чисті функції (Pure Functions)</h2>
+
+        <p>
+          <strong>Чистою (Pure Function)</strong> називається функція, яка
+          завжди повертає однаковий результат, якщо вона викликається з тим
+          самим набором аргументів. Крім того, вона не має
+          <strong>побічних ефектів (side effects)</strong>.
+        </p>
+
+        <div class="explanation">
+          <strong>Що означає "немає побічних ефектів"?</strong>
+          <p>Це означає, що всередині свого коду функція:</p>
+          <ul>
+            <li>Не мутує (не змінює) вхідні параметри.</li>
+            <li>
+              Не викликає інші функції, які можуть мутувати вхідні параметри.
+            </li>
+            <li>Не робить HTTP-запитів (AJAX / fetch).</li>
+            <li>Не робить жодних змін у файловій системі.</li>
+            <li>
+              Не робить запитів до DOM-елементів (не змінює інтерфейс сторінки).
+            </li>
+          </ul>
+        </div>
+
+        <h3>Приклад чистої та нечистої функції</h3>
+
+        <pre><code>// Чиста функція — результат залежить тільки від аргументів
+const addPure = (x, y) => x + y;
+console.log(addPure(2, 4)); // Завжди виведе 6
+console.log(addPure(2, 4)); // Знову виведе 6 (результат стабільний)
+
+// Нечиста функція — змінює зовнішню змінну (побічний ефект)
+let globalValue = 2;
+const addImpure = (y) => globalValue += y;
+
+console.log(addImpure(4)); // Виведе 6 (globalValue тепер став 6)
+console.log(addImpure(4)); // Виведе 10 (результат змінився, функція нечиста!)</code></pre>
+
+        <button onclick="runPureFunctionsDemo()">Запустити в консолі</button>
+
+        <div class="function-summary">
+          <strong>Чому це важливо?</strong>
+          <ul>
+            <li>
+              Чисті функції легко тестувати, оскільки їхній результат є
+              передбачуваним.
+            </li>
+            <li>
+              Вони не створюють прихованих багів, бо ніяк не впливають на інший
+              код у програмі.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- 9. Функції вищого порядку та Колбек-функції -->
+      <section class="functions-topic">
+        <h2>Функції вищого порядку / Функція-коллбек</h2>
+
+        <p>
+          <strong>Функцією вищого порядку (Higher-Order Function)</strong>
+          називається така функція, яка приймає іншу функцію як аргумент або
+          повертає функцію у вигляді вихідного значення.
+        </p>
+
+        <p>
+          Припустимо, у нас є масив чисел, і ми хочемо створити новий масив,
+          який містить результати множення цих чисел на 2. Розглянемо два
+          способи розвʼязання цього завдання: класичний (через цикл) та сучасний
+          (з використанням функції вищого порядку).
+        </p>
+
+        <div class="function-types">
+          <div class="function-type">
+            <h3>Спосіб 1: Без функцій вищого порядку</h3>
+            <p>
+              Використовуємо звичайний цикл <code>for</code> та ручне наповнення
+              масиву:
+            </p>
+            <pre><code>const arr1 =;
+const arr2 = [];
+
+for (let i = 0; i &lt; arr1.length; i++) {
+  arr2.push(arr1[i] * 2);
+}
+
+// Виводить у консоль: [2, 4, 6]
+console.log(arr2);</code></pre>
+          </div>
+
+          <div class="function-type">
+            <h3>Спосіб 2: З функцією вищого порядку</h3>
+            <p>
+              Використовуємо вбудований метод масиву <code>map()</code>, який
+              приймає у себе функцію:
+            </p>
+            <pre><code>const arr1 =;
+
+const arr2 = arr1.map(function(item) {
+  return item * 2;
+});
+
+// Виводить у консоль: [2, 4, 6]
+console.log(arr2);</code></pre>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <strong>Що таке колбек-функція?</strong>
+          <p>
+            <strong
+              >Колбек-функція (Callback function / функція зворотного
+              виклику)</strong
+            >
+            — це функція, яка передається в іншу функцію як аргумент, і потім
+            викликається всередині неї після завершення певної дії.
+          </p>
+          <p>
+            У <em>Способі 2</em> анонімна функція
+            <code>function(item) { return item * 2; }</code> є саме
+            <strong>колбеком</strong>, а метод <code>map()</code> —
+            <strong>функцією вищого порядку</strong>.
+          </p>
+        </div>
+
+        <button onclick="runHigherOrderDemo()">Запустити в консолі</button>
+      </section>
+      <!-- 10. IIFE — функція, що самовикликається -->
+      <section class="functions-topic">
+        <h2>IIFE — функція, що самовикликається</h2>
+
+        <p>
+          <strong>IIFE (Immediately Invoked Function Expression)</strong> — це
+          функція в JavaScript, яка виконується автоматично та відразу після
+          того, як вона була визначена в коді.
+        </p>
+
+        <p>
+          Для створення такої функції її тіло огортають у круглі дужки
+          <code>( )</code>, а наприкінці ставлять ще одні круглі дужки
+          <code>()</code>, які її безпосередньо викликають.
+        </p>
+
+        <pre><code>(function () {
+  const res = 1 + 2;
+  console.log(res); // Виведе 3 відразу при завантаженні сторінки
+})();</code></pre>
+
+        <button onclick="runIifeDemo()">Запустити в консолі</button>
+
+        <div class="explanation">
+          <strong>Навіщо це потрібно?</strong>
+          <p>
+            Головна мета IIFE — створити **ізольовану область видимості**.
+            Будь-які змінні, створені всередині IIFE (наприклад,
+            <code>const res</code>), не засмічують глобальну область і до них не
+            можна отримати доступ ззовні. Це дуже допомагало розробникам до
+            появи сучасних модулів.
+          </p>
+        </div>
+      </section>
+      <!-- 11. Вкладені функції -->
+      <section class="functions-topic">
+        <h2>Вкладені функції (Nested Functions)</h2>
+
+        <p>
+          У JavaScript функція може бути оголошена всередині іншої функції. Таку
+          функцію називають
+          <strong>вкладеною (внутрішньою)</strong>.
+        </p>
+
+        <p>
+          Внутрішня функція має повний доступ до змінних батьківської
+          (зовнішньої) функції. Однак зовнішній код не має доступу до самої
+          внутрішньої функції — вона схована від усього світу.
+        </p>
+
+        <pre><code>function init() {
+  let name = 'Test'; // Локальна змінна батьківської функції
+
+  function displayName() { // Внутрішня функція
+    alert(name); // Використовуємо змінну, яку оголосили у батьківській функції
+  }
+
+  displayName(); // Працює, бо викликається всередині батьківської функції
+}
+
+init(); // Виведе вікно: "Test"
+
+displayName(); // Помилка! ReferenceError: displayName is not defined</code></pre>
+
+        <button onclick="runNestedFunctionsDemo()">Запустити цей код</button>
+
+        <div class="explanation">
+          <strong>Важливі правила видимості:</strong>
+          <ul>
+            <li>
+              Внутрішня функція <code>displayName()</code> бачить і може
+              використовувати змінну <code>name</code>.
+            </li>
+            <li>
+              Викликати <code>displayName()</code> можна
+              <strong>тільки всередині</strong> функції <code>init()</code>.
+            </li>
+            <li>
+              Спроба викликати внутрішню функцію з глобального коду призведе до
+              помилки, оскільки ззовні її просто не існує.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- 12. Замикання -->
+      <section class="functions-topic">
+        <h2>Замикання (Closures)</h2>
+
+        <p>
+          <strong>Замикання (Closure)</strong> — це функція, яка має доступ до
+          області видимості своєї зовнішньої (батьківської) функції, навіть
+          після того, як зовнішня функція завершила своє виконання.
+        </p>
+
+        <p>
+          Це означає, що замикання може «запамʼятовувати» та отримувати доступ
+          до змінних та аргументів своєї зовнішньої функції навіть тоді, коли та
+          вже повністю припинила роботу й очистила свій стек.
+        </p>
+
+        <pre><code>function person() {
+  let value = 'Peter';
+
+  return function displayName() {
+    console.log(value);
+  };
+}
+
+let peter = person(); // Функція person виконалась і повернула внутрішню функцію
+
+peter(); // Виведе у консоль: 'Peter' (Внутрішня функція запам'ятала змінну value!)
+
+console.log(value); // Помилка! ReferenceError: value is not defined</code></pre>
+
+        <button onclick="runClosureDemo()">Запустити в консолі</button>
+
+        <div class="explanation">
+          <strong>Як це працює і чому це магія?</strong>
+          <p>
+            Коли ми викликаємо <code>person()</code>, вона створює локальну
+            змінну <code>value</code> і повертає функцію
+            <code>displayName</code>. Зазвичай, коли функція завершується, її
+            локальні змінні видаляються з пам'яті.
+          </p>
+          <p>
+            Але функція <code>peter()</code> (яка насправді є посиланням на
+            <code>displayName</code>) утворює <strong>замикання</strong>. Вона
+            тримає «живе» посилання на область видимості, в якій була створена,
+            тому змінна <code>value = 'Peter'</code> продовжує існувати
+            всередині неї.
+          </p>
+        </div>
+      </section>
+      <!-- 13. Стрілочні функції (Arrow Functions) -->
+      <section class="functions-topic">
+        <h2>Стрілочні функції (Arrow Functions)</h2>
+
+        <p>
+          У JavaScript існує ще більш простий та короткий синтаксис для
+          створення функцій, який часто є зручнішим та лаконічнішим, ніж звичний
+          <code>Function Expression</code>:
+        </p>
+
+        <pre><code>// Звичайний синтаксис
+let sum = function(a, b) {
+  return a + b;
+};
+console.log(sum(1, 2)); // 3</code></pre>
+
+        <p>
+          Він називається
+          <strong
+            >"функції-стрілки" або "стрілочні функції" (arrow functions)</strong
+          >
+          і виглядає наступним чином:
+        </p>
+
+        <pre><code>// Сучасний стрілочний синтаксис
+let sum = (a, b) => a + b;
+console.log(sum(1, 2)); // 3</code></pre>
+
+        <button onclick="runArrowBasicDemo()">Запустити базовий приклад</button>
+
+        <h3>Правила роботи з аргументами:</h3>
+        <ul>
+          <li>
+            Зазвичай параметри завжди поміщаються всередину круглих дужок:
+            <code>(a, b) => a + b</code>.
+          </li>
+          <li>
+            Якщо необхідно передати функції
+            <strong>всього один параметр</strong>, круглі дужки можна не
+            використовувати: <code>const f = x => x * 2;</code>. Проте, щоб
+            уникнути непорозумінь та підтримувати код чистим, рекомендується
+            завжди писати дужки: <code>const f = (x) => x * 2;</code>
+          </li>
+          <li>
+            Якщо параметри взагалі <strong>не потрібні</strong>, круглі дужки
+            залишаються порожніми: <code>const f = () => 42;</code>
+          </li>
+        </ul>
+
+        <h3>Тіло функції та повернення значення</h3>
+        <p>
+          У разі, коли необхідно виконати лише одну інструкцію (як у прикладах
+          вище), досить просто вказати її після стрілки. Функція
+          <strong>автоматично поверне</strong> результат цього виразу без слова
+          <code>return</code>:
+        </p>
+        <pre><code>const add = (a, b) => a + b; // Автоматично поверне a + b</code></pre>
+
+        <p>
+          У ситуаціях, коли однієї інструкції виявляється замало, тіло функції
+          необхідно укласти у <strong>фігурні дужки <code>{ ... }</code></strong
+          >. У такому випадку ключове слово <code>return</code> стає
+          <strong>обов'язковим</strong>, інакше функція поверне
+          <code>undefined</code>:
+        </p>
+        <pre><code>const calcPower = (a, b) => {
+  let result = Math.pow(a, b);
+  return result; // Фігурні дужки вимагають явного return!
+};</code></pre>
+
+        <div class="explanation" style="border-left-color: var(--terracotta)">
+          <strong>Критичне обмеження: розриви рядків</strong>
+          <p>
+            Стрілочна функція
+            <strong>не може містити перенесення рядка</strong> між параметрами
+            та самою стрілкою <code>=></code>. Такий запис зламає програму:
+          </p>
+          <pre
+            style="background: #33151c; margin-bottom: 0"
+          ><code style="color: #ffb3b3;">const func = ()
+  => 1; 
+// Помилка! SyntaxError: expected expression, got '=>'</code></pre>
+        </div>
+
+        <h3>Головна технічна відмінність: відсутність `arguments`</h3>
+        <p>
+          У стрілочних функцій
+          <strong>немає вбудованого об'єкта <code>arguments</code></strong
+          >, який зберігає всі передані параметри. Спроба звернутися до нього
+          всередині стрілки викликає помилку.
+        </p>
+        <p>
+          Якщо вам потрібен доступ до всіх аргументів у стрілочній функції,
+          використовуйте сучасний **оператор rest <code>(...args)</code>**:
+        </p>
+
+        <table style="margin-top: 20px">
+          <thead>
+            <tr>
+              <th>Тип функції / Синтаксис</th>
+              <th>Результат спроби прочитати arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Звичайна функція (ES5)</strong><br /><code
+                  >init: function(a,b) { console.log(arguments) }</code
+                >
+              </td>
+              <td>
+                <span style="color: green; font-weight: 600">Успішно</span> —
+                виводить повний список переданих аргументів.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Стрілочна функція (ES6)</strong><br /><code
+                  >init2: (a,b) => { console.log(arguments) }</code
+                >
+              </td>
+              <td>
+                <span style="color: #cc6d52; font-weight: 600">Помилка!</span>
+                ReferenceError: arguments is not defined.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Стрілочна + rest (ES6+)</strong><br /><code
+                  >init3: (a,b,...args) => { console.log(args) }</code
+                >
+              </td>
+              <td>
+                <span style="color: green; font-weight: 600">Успішно</span> —
+                збирає залишок аргументів у реальний масив <code>args</code>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <button onclick="objDemo.init(1, 2, 3)">
+            Тест 1: Звичайна функція (ES5)
+          </button>
+          <button onclick="objDemo.init2(1, 2, 3)">
+            Тест 2: Стрілочна функція (ES6)
+          </button>
+          <button onclick="objDemo.init3(1, 2, 3)">
+            Тест 3: Стрілочна + Rest (ES6+)
+          </button>
+        </div>
+      </section>
+      <!-- 14. Рекурсія (Recursion) -->
+      <section class="functions-topic">
+        <h2>Рекурсія (Recursion)</h2>
+
+        <p>
+          <strong>Рекурсія</strong> — це термін у програмуванні, що означає
+          виклик функцією самої себе. Рекурсивні функції дозволяють елегантно та
+          коротко вирішувати певні класи завдань, розбиваючи велику проблему на
+          простіші підзадачі.
+        </p>
+
+        <div class="explanation">
+          <strong>Жарт про рекурсію:</strong>
+          <p>
+            Щоб зрозуміти рекурсію, потрібно спочатку зрозуміти рекурсію. 🌀
+          </p>
+        </div>
+
+        <h3>Два золоті правила рекурсії:</h3>
+        <ul>
+          <li>
+            <strong>Базовий випадок (Base Case):</strong> Кожна рекурсивна
+            функція повинна мати один або кілька базових випадків, для яких не
+            потрібно викликати саму себе. Він забезпечує зупинку рекурсії та
+            визначає кінцевий результат (вихід із циклу викликів).
+          </li>
+          <li>
+            <strong>Рекурсивний виклик (Recursive Call):</strong> Функція
+            повинна викликати саму себе зі зміненими параметрами, які
+            прогресивно наближають її до базового випадку.
+          </li>
+        </ul>
+
+        <h3>Приклад 1: Обчислення Факторіала</h3>
+        <p>
+          Функція <code>factorial(n)</code> обчислює факторіал числа
+          <code>n</code> (добуток усіх чисел від 1 до n), використовуючи
+          рекурсію:
+        </p>
+
+        <pre><code>function factorial(n) {
+  // 1. Базовий випадок: якщо n = 0, факторіал дорівнює 1
+  if (n === 0) {
+    return 1;
+  } else {
+    // 2. Рекурсивний виклик: n! = n * (n - 1)!
+    return n * factorial(n - 1);
+  }
+}
+
+const result = factorial(5); // Результат: 5! = 120</code></pre>
+
+        <button onclick="runFactorialDemo()">Обчислити 5! (Факторіал)</button>
+
+        <h3>Два способи мислення (Ітерація vs Рекурсія)</h3>
+        <p>
+          Як приклад вивчимо функцію <code>pow(x, n)</code>, яка зводить число
+          <code>x</code> у натуральний ступінь <code>n</code> (множить
+          <code>x</code> на себе <code>n</code> разів). Наприклад:
+          <code>pow(2, 3) // 8</code> або <code>pow(2, 4) // 16</code>.
+        </p>
+
+        <div class="function-types">
+          <div class="function-type">
+            <h3>1. Ітеративне мислення (Цикл for)</h3>
+            <p>Програма послідовно множить результат у циклі:</p>
+            <pre><code>function pow(x, n) {
+  let result = 1;
+  for (let i = 0; i &lt; n; i++) {
+    result *= x;
+  }
+  return result;
+}
+
+alert( pow(2, 3) ); // 8</code></pre>
+          </div>
+
+          <div class="function-type">
+            <h3>2. Рекурсивне мислення (Виклик себе)</h3>
+            <p>
+              Завдання спрощується до формули <code>x * pow(x, n - 1)</code>:
+            </p>
+            <pre><code>function pow(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * pow(x, n - 1);
+  }
+}
+
+alert( pow(2, 3) ); // 8</code></pre>
+          </div>
+        </div>
+
+        <button onclick="runPowDemo()">Запустити зведення у ступінь</button>
+
+        <div class="explanation">
+          <strong>Що відбувається під капотом рекурсії?</strong>
+          <p>
+            Коли викликається <code>pow(2, 3)</code>, комп'ютер запам'ятовує
+            поточний стан у <em>стек викликів (execution context stack)</em> і
+            крок за кроком розгортає матріошку викликів:
+          </p>
+          <code>pow(2, 3) = 2 * pow(2, 2)</code> <br />
+          <code>pow(2, 2) = 2 * pow(2, 1)</code> <br />
+          <code>pow(2, 1) = 2</code> <em>(Базовий випадок, зупинка!)</em> <br />
+          <p style="margin-top: 10px">
+            Після досягнення бази стек згортається у зворотний бік, перемножуючи
+            результати: <code>2 * 2 * 2 = 8</code>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Онлайн-підручник з JavaScript</p>
+    </footer>
+
+    <script>
+      function runScopeDemo() {
+        let userName = "Іван";
+
+        // Крок 1: Показуємо початкове значення
+        alert(`[До виклику] userName: ${userName}`);
+
+        // Крок 2: Емулюємо роботу функції
+        userName = "Богдан";
+        let message = "Здоровенькі були, " + userName;
+        alert(`[Всередині функції showMessage]: ${message}`);
+
+        // Крок 3: Показуємо змінене значення
+        alert(`[Після виклику] userName змінено на: ${userName}`);
+      }
+
+      function runShadowingDemo() {
+        let userName = "Іван";
+
+        // Емуляція виклику функції showMessage із власною локальною змінною
+        let localUserName = "Богдан";
+        let message = "Привіт, " + localUserName;
+        alert(`[Всередині функції showMessage]: ${message}`);
+
+        // Перевірка глобальної змінної після виклику
+        alert(`[Зовні функції] userName залишився: ${userName}`);
+      }
+
+      function runArgumentsDemo() {
+        // Демонстрація виклику функції з різними аргументами
+        alert("Анна" + ": " + "Привіт!");
+        alert("Анна" + ": " + "Як справи?");
+      }
+
+      function runDefaultArgsDemo() {
+        // Емулюємо виклик функції без другого аргументу, де спрацьовує значення за замовчуванням
+        let from = "Анна";
+        let text = "текст не задано";
+        alert(from + ": " + text);
+      }
+
+      function runReturnDemo() {
+        function sum(a, b) {
+          return a + b;
+        }
+        let result = sum(1, 2);
+        alert(result);
+      }
+
+      function runMultipleReturnsDemo() {
+        function checkAge(age) {
+          if (age >= 18) {
+            return true;
+          } else {
+            return confirm("У вас є дозвіл ваших батьків?");
+          }
+        }
+
+        let age = prompt("Скільки вам років?", 18);
+
+        // Перевірка на скасування введення (null) або порожній рядок
+        if (age === null || age.trim() === "") {
+          alert("Введення скасовано");
+          return;
+        }
+
+        if (checkAge(Number(age))) {
+          alert("Доступ надано");
+        } else {
+          alert("У доступі відмовлено");
+        }
+      }
+
+      function runUndefinedReturnDemo() {
+        function doNothing1() {
+          /* порожньо */
+        }
+        function doNothing2() {
+          return;
+        }
+
+        alert(
+          `doNothing() без return повертає: ${doNothing1()}\nПеревірка (=== undefined): ${doNothing1() === undefined}`,
+        );
+        alert(
+          `doNothing() з порожнім return повертає: ${doNothing2()}\nПеревірка (=== undefined): ${doNothing2() === undefined}`,
+        );
+      }
+
+      function runPureFunctionsDemo() {
+        console.clear();
+
+        // Демонстрація чистої функції
+        const addPure = (x, y) => x + y;
+        console.log("1. Виклик чистої функції addPure(2, 4) ->", addPure(2, 4));
+        console.log("2. Другий виклик addPure(2, 4) ->", addPure(2, 4));
+
+        // Демонстрація нечистої функції
+        let globalValue = 2;
+        const addImpure = (y) => (globalValue += y);
+        console.log("3. Початкове значення зовнішньої змінної globalValue = 2");
+        console.log(
+          "4. Перший виклик нечистої функції addImpure(4) ->",
+          addImpure(4),
+        );
+        console.log(
+          "5. Другий виклик нечистої функції addImpure(4) з тими ж даними ->",
+          addImpure(4),
+        );
+        console.log(
+          "6. Фінальне значення зовнішньої змінної globalValue тепер:",
+          globalValue,
+        );
+
+        alert(
+          "Результат виведено в консоль браузера! Натисніть F12 -> вкладка Console, щоб побачити лог без помилок.",
+        );
+      }
+
+      function runHigherOrderDemo() {
+        console.clear();
+
+        // Наповнюємо масив цифрами 1, 2, 3 всередині квадратних дужок []
+        const arr1 = [1, 2, 3];
+
+        // Демонстрація через map
+        const arr2 = arr1.map(function (item) {
+          return item * 2;
+        });
+
+        console.log("Початковий масив arr1:", arr1);
+        console.log("Результат роботи arr1.map() -> arr2:", arr2);
+
+        alert(
+          "Масиви успішно оброблені! Результат виведено в консоль (F12 -> вкладка Console).",
+        );
+      }
+      function runIifeDemo() {
+        console.clear();
+        console.log("Запускаємо ізольовану функцію IIFE...");
+
+        // Самовиклична функція всередині нашого кліку
+        (function () {
+          const res = 1 + 2;
+          console.log("Результат обчислення всередині IIFE res =", res);
+        })();
+
+        alert(
+          "Код IIFE виконано! Результат обчислення дивіться у консолі браузера (F12 -> Console).",
+        );
+      }
+      function runNestedFunctionsDemo() {
+        // 1. Демонстрація успішного виклику через init()
+        alert("Крок 1: Викликаємо головну функцію init()...");
+
+        function init() {
+          let name = "Test";
+          function displayName() {
+            alert(`[Всередині displayName] name: ${name}`);
+          }
+          displayName();
+        }
+
+        init(); // Успішно виведе "Test"
+
+        // 2. Безпечна емуляція помилки виклику ззовні
+        alert(
+          "Крок 2: Спробуємо викликати внутрішню displayName() з глобального коду...",
+        );
+        try {
+          displayName(); // Це викличе помилку, бо функція локальна
+        } catch (error) {
+          alert(
+            `Отримано очікувану помилку:\n${error.name}: ${error.message}\n(Доступ із зовнішнього коду заборонено!)`,
+          );
+        }
+      }
+      function runClosureDemo() {
+        console.clear();
+        console.log("--- Тестуємо Замикання (Closure) ---");
+
+        function person() {
+          let value = "Peter";
+          return function displayName() {
+            console.log("Внутрішній лог замикання:", value);
+          };
+        }
+
+        // Створюємо замикання
+        let peter = person();
+
+        console.log("1. Функція person() викликана і завершила роботу.");
+        console.log(
+          "2. Викликаємо peter(), яка є внутрішньою функцією displayName():",
+        );
+
+        peter(); // Виведе 'Peter'
+
+        console.log(
+          "3. Спробуємо отримати доступ до змінної value напряму з глобального коду...",
+        );
+        try {
+          console.log(value); // Це викличе помилку, бо глобально value не існує
+        } catch (error) {
+          console.log(`4. Очікувана помилка: ${error.name}: ${error.message}`);
+        }
+
+        alert(
+          "Код виконано! Подивіться детальний лог замикання у консолі браузера (F12 -> вкладка Console).",
+        );
+      }
+      // Базовий приклад стрілочної функції
+      function runArrowBasicDemo() {
+        let sum = (a, b) => a + b;
+        alert(`Результат sum(1, 2) обчислено стрілкою: ${sum(1, 2)}`);
+      }
+
+      // Об'єкт для демонстрації поведінки arguments та rest оператора
+      var objDemo = {
+        // 1. Класичний ES5 метод — arguments існує
+        init: function (a, b) {
+          console.clear();
+          console.log("--- Тест 1: Звичайна функція ---");
+          console.log("Вбудований об'єкт arguments:", arguments);
+          alert(
+            "Успішно! Передані аргументи виведено в консоль (F12 -> Console).",
+          );
+        },
+
+        // 2. Стрілочна функція ES6 — arguments викликає ReferenceError
+        init2: (a, b) => {
+          console.clear();
+          console.log("--- Тест 2: Стрілочна функція ---");
+          try {
+            // Спроба викликати неіснуючий у стрілках arguments
+            console.log(arguments);
+          } catch (error) {
+            console.error(error);
+            alert(
+              `Отримано очікувану помилку!\n${error.name}: ${error.message}\n(У стрілочних функцій немає arguments!)`,
+            );
+          }
+        },
+
+        // 3. Стрілочна функція ES6 + rest — правильна заміна для arguments
+        init3: (a, b, ...args) => {
+          console.clear();
+          console.log("--- Тест 3: Стрілочна функція + rest оператор ---");
+          console.log("Перші два параметри потрапили в змінні a та b.");
+          console.log(
+            "Усі інші аргументи зібрані оператором '...args' у масив:",
+            args,
+          );
+          alert(
+            "Успішно! Залишок аргументів зібрано у масив через rest оператор та виведено в консоль.",
+          );
+        },
+      };
+      // Демонстрація рекурсивного факторіала
+      function runFactorialDemo() {
+        function factorial(n) {
+          if (n === 0) {
+            return 1;
+          } else {
+            return n * factorial(n - 1);
+          }
+        }
+        let res = factorial(5);
+        alert(
+          `Функція обчислила рекурсивно:\nfactorial(5) = ${res}\n(5 * 4 * 3 * 2 * 1 = 120)`,
+        );
+      }
+
+      // Демонстрація двох типів зведення у ступінь
+      function runPowDemo() {
+        // 1. Ітеративний варіант
+        function powIterative(x, n) {
+          let result = 1;
+          for (let i = 0; i < n; i++) {
+            result *= x;
+          }
+          return result;
+        }
+
+        // 2. Рекурсивний варіант
+        function powRecursive(x, n) {
+          if (n == 1) {
+            return x;
+          } else {
+            return x * powRecursive(x, n - 1);
+          }
+        }
+
+        let x = 2;
+        let n = 3;
+
+        alert(
+          `Результат ітеративного циклу pow(2, 3): ${powIterative(x, n)}\nРезультат рекурсії pow(2, 3): ${powRecursive(x, n)}`,
+        );
+      }
+    </script>
+  </body>
+</html>
